@@ -488,7 +488,7 @@
   </body>
 </template>
 <script>
-import apiPegawai from "../../../service/Api";
+import apiPegawai from "/src/service/Api";
 import { defineComponent } from "vue";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -496,8 +496,8 @@ import { ref, onMounted } from "vue";
 import { useToast } from "primevue/usetoast";
 import { useConfirm } from "primevue/useconfirm";
 import { useRouter } from "vue-router";
-import header from "../../component/header.vue";
-import footer from "../../component/footer.vue";
+import header from "/src/views/component/header.vue";
+import footer from "/src/views/component/footer.vue";
 import { FilterMatchMode, FilterOperator } from "primevue/api";
 
 export default defineComponent({

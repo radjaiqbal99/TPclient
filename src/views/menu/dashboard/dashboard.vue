@@ -558,8 +558,8 @@
 </template>
 
 <script>
-import header from "../../component/header.vue";
-import footer from "../../component/footer.vue";
+import header from "/src/views/component/header.vue";
+import footer from "/src/views/component/footer.vue";
 import { ref, onMounted } from "vue";
 
 export default {
