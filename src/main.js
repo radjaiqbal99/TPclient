@@ -37,7 +37,7 @@ import '@tabler/core/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
 import 'primeicons/primeicons.css'                           //icons
-// import '@tabler/core/dist/js/tabler.js'
+import '@tabler/core/dist/js/tabler.js'
 // import '@tabler/core/dist/js/tabler.min.js'
 
 
