@@ -10,6 +10,7 @@
     "@aws-sdk/middleware-serde": "^1.0.0-gamma.2",
     "@popperjs/core": "^2.9.2",
     "@revolist/vue3-datagrid": "^3.0.52",
+    "@tabler/core": "^1.0.0-beta2",
     "@types/jquery": "^3.5.5",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta3",

@@ -29,11 +29,16 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 
 import 'sweetalert2/dist/sweetalert2.min.css';
-import './assets/dist/css/tabler-vendors.min.css'
-import './assets/dist/css/tabler.min.css'
+// import './assets/dist/css/tabler-vendors.min.css'
+import '@tabler/core/dist/css/tabler-vendors.min.css'
+import '@tabler/core/dist/css/tabler.min.css'
+
+// import './assets/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
 import 'primeicons/primeicons.css'                           //icons
+// import '@tabler/core/dist/js/tabler.js'
+// import '@tabler/core/dist/js/tabler.min.js'
 
 
 
