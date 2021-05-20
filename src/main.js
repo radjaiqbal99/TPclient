@@ -25,11 +25,12 @@ import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
+
+
+
 import 'sweetalert2/dist/sweetalert2.min.css';
-
-
-// import $ from 'jquery'
-
+import './assets/dist/css/tabler-vendors.min.css'
+import './assets/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
 import 'primeicons/primeicons.css'                           //icons
