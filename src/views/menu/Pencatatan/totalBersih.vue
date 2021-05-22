@@ -459,7 +459,7 @@
                     style="font-size: 2rem"
                   />
                   <span v-if="product"
-                    >Are you sure you want to delete <b>{{ product.name }}</b
+                    >Are you sure u want to delete <b>{{ product.name }}</b
                     >?</span
                   >
                 </div>
