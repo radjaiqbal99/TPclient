@@ -8,7 +8,6 @@ import Password from 'primevue/password'
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
 import ProgressSpinner from 'primevue/progressspinner';
-// import InputNumber from 'primevue/inputnumber'
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
 import AutoComplete from 'primevue/autocomplete'
@@ -26,40 +25,19 @@ import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
-// import cors from 'cors';
-
-
 
 import 'sweetalert2/dist/sweetalert2.min.css';
-// import './assets/dist/css/tabler-vendors.min.css'
 import '@tabler/core/dist/css/tabler-vendors.min.css'
 import '@tabler/core/dist/css/tabler.min.css'
 
-// import './assets/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css' //theme
 import 'primevue/resources/primevue.min.css' //core css
 import 'primeicons/primeicons.css' //icons
 import '@tabler/core/dist/js/tabler.js'
-// import '@tabler/core/dist/js/tabler.min.js'
-// var cors = require('cors')
-// const cors = require('cors');
-// const corsOptions = {
-//     origin: 'http://localhost:3000',
-//     credentials: true, //access-control-allow-credentials:true
-//     optionSuccessStatus: 200
-// }
-// app.use(cors(corsOptions));
 
 
-
-// window.Vue = require('vue').default;
-
-// Vue.component('header-component',require('./views/component/header.vue'))
 const app = createApp(App)
-// Vue.use(VuePageTitle, {router})
 app.use(VueSweetalert2);
-// app.use(VuePageTitle, { router })
-// app.use(cors())
 app.use(ConfirmationService)
 app.use(ToastService)
 app.use(router)
