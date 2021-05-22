@@ -1005,7 +1005,7 @@ export default defineComponent({
     const pegawai = ref([]);
     const kasir = ref([]);
     const name = ref([]);
-    const loadingbutton = ref(true);
+    const loadingbutton = ref(false);
     const loading1 = ref(true);
     const selectedData = ref();
     const router = useRouter();

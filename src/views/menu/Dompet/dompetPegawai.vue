@@ -154,7 +154,7 @@ export default defineComponent({
       global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
     const ApiPegawai = ref(new apiPegawai());
-    const loadingbutton = ref(true);
+    const loadingbutton = ref(false);
     const loading1 = ref(true);
     const selectedData = ref();
     const router = useRouter();
