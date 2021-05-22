@@ -96,7 +96,6 @@
                             label="Collapse All"
                             @click="collapseAll"
                           />
-                          
                         </div>
                       </div>
                     </template>
@@ -451,17 +450,13 @@
                   <label
                     for="nama "
                     class="mb-2"
-                    v-if="
-                      product.jenisTransaksi == `Bon truk`
-                    "
+                    v-if="product.jenisTransaksi == `Bon truk`"
                     >Nama</label
                   >
                   <Dropdown
                     id="nama"
                     v-model.trim="product.name"
-                    v-if="
-                      product.jenisTransaksi == `Bon truk`
-                    "
+                    v-if="product.jenisTransaksi == `Bon truk`"
                     :options="name"
                     optionLabel="name"
                     optionValue="name"
@@ -476,7 +471,7 @@
                     v-if="
                       submitted &&
                       !product.name &&
-                        product.jenisTransaksi == `Bon truk`
+                      product.jenisTransaksi == `Bon truk`
                     "
                     >Nama is required.</small
                   >
@@ -945,16 +940,33 @@ import { FilterMatchMode, FilterOperator } from "primevue/api";
 
 export default defineComponent({
   data() {
-    return {
-    };
+    return {};
   },
   setup() {
     onMounted(async () => {
       await ApiPegawai.value
         .getPegawai()
-        .then((res) => {
+        .then(async (res) => {
           products.value = res.data;
           loading1.value = false;
+          await ApiPegawai.value
+            .getResourcesForm()
+            .then((res) => {
+              satuan.value = res.data.hargaPasir;
+              pegawai.value = res.data.daftarPegawai;
+              kasir.value = res.data.daftarKasir;
+              name.value = res.data.bonTrukNama;
+            })
+            .catch((err) => {
+              add.value = true;
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                title: err,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            });
         })
         .catch((err) => {
           loading1.value = false;
@@ -1075,24 +1087,7 @@ export default defineComponent({
       product.value = {};
       // submitted.value = false;
       add.value = true;
-      await ApiPegawai.value
-        .getResourcesForm()
-        .then((res) => {
-          satuan.value = res.data.hargaPasir;
-          pegawai.value = res.data.daftarPegawai;
-          kasir.value = res.data.daftarKasir;
-          name.value = res.data.bonTrukNama;
-        })
-        .catch((err) => {
-          add.value = true;
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: err,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        });
+      
     };
     const hideDialog = () => {
       add.value = false;
@@ -1158,10 +1153,7 @@ export default defineComponent({
           addDataComfrim.value = true;
         }
       } else if (product.value.jenisTransaksi == "Penarikan deposit kasir") {
-        if (
-          product.value.kasir &&
-          product.value.harga
-        ) {
+        if (product.value.kasir && product.value.harga) {
           addDataComfrim.value = true;
         }
         // console.log("Penarikan deposit kasir");

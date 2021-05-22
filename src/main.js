@@ -1,5 +1,6 @@
-import { createApp } from 'vue'
-
+import {
+    createApp
+} from 'vue'
 import ConfirmationService from 'primevue/confirmationservice'
 import ConfirmPopup from 'primevue/confirmpopup'
 import router from './router'
@@ -25,6 +26,7 @@ import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
+// import cors from 'cors';
 
 
 
@@ -34,12 +36,19 @@ import '@tabler/core/dist/css/tabler-vendors.min.css'
 import '@tabler/core/dist/css/tabler.min.css'
 
 // import './assets/dist/css/tabler.min.css'
-import 'primevue/resources/themes/saga-blue/theme.css'       //theme
-import 'primevue/resources/primevue.min.css'                 //core css
-import 'primeicons/primeicons.css'                           //icons
+import 'primevue/resources/themes/saga-blue/theme.css' //theme
+import 'primevue/resources/primevue.min.css' //core css
+import 'primeicons/primeicons.css' //icons
 import '@tabler/core/dist/js/tabler.js'
 // import '@tabler/core/dist/js/tabler.min.js'
-
+// var cors = require('cors')
+// const cors = require('cors');
+// const corsOptions = {
+//     origin: 'http://localhost:3000',
+//     credentials: true, //access-control-allow-credentials:true
+//     optionSuccessStatus: 200
+// }
+// app.use(cors(corsOptions));
 
 
 
@@ -50,16 +59,19 @@ const app = createApp(App)
 // Vue.use(VuePageTitle, {router})
 app.use(VueSweetalert2);
 // app.use(VuePageTitle, { router })
+// app.use(cors())
 app.use(ConfirmationService)
 app.use(ToastService)
 app.use(router)
-app.use(PrimeVue, { ripple: true })
+app.use(PrimeVue, {
+    ripple: true
+})
 app.component('Toast', Toast)
 app.component('TabView', TabView)
 app.component('TabPanel', TabPanel)
 app.component('InputMask', InputMask)
 app.component('ConfirmPopup', ConfirmPopup)
-app.component('ProgressSpinner',ProgressSpinner)
+app.component('ProgressSpinner', ProgressSpinner)
 app.component('AutoComplete', AutoComplete)
 app.component('Password', Password);
 app.component('Dialog', Dialog);
@@ -73,5 +85,3 @@ app.component('DataTable', DataTable);
 app.component('Column', Column);
 app.component('ColumnGroup', ColumnGroup);
 app.mount('#app')
-
-

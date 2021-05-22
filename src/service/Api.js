@@ -103,7 +103,7 @@ export default class Api {
 
     // resoucesForm
     getResourcesForm() {
-        return axios.get(`http://server.natunasandmine.com/api/resourcesForm`)
+        return axios.get(`http://server.natunasandmine.com/api/rf`)
     }
 
     //pencatatan
