@@ -25,21 +25,13 @@ import Breadcrumb from 'primevue/breadcrumb';
 import InputMask from 'primevue/inputmask';
 import Dialog from 'primevue/dialog';
 import Badge from 'primevue/badge';
-import DataTable from 'primevue/datatable';
+import DataTable from 'primevue/datatable/datatable.esm';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
-import VueApexCharts from 'vue3-apexcharts'
+import VueApexCharts from 'vue3-apexcharts/dist/vue3-apexcharts.common'
 
-
-// import 'sweetalert2/dist/sweetalert2.min.css';
-// import '@tabler/core/dist/css/tabler.min.css'
-// import './split.js'
-// import 'primevue/resources/themes/saga-blue/theme.css' //theme
-// import 'primevue/resources/primevue.min.css' //core css
-// import 'primeicons/primeicons.css' //icons
-// import '@tabler/core/dist/js/tabler.min.js'
 import 'sweetalert2/dist/sweetalert2.min.css';
 import '@tabler/core/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css' //theme

@@ -9,22 +9,6 @@ const routes =[
             title:'Tambang Pasir'
         }
     },
-    {
-        path: '/registration',
-        name: 'registration', 
-        component: () => import("../views/management-account/registration.vue"),
-        meta: {
-            title: 'Registrasi'
-        }
-    },
-    {
-        path: '/forget-password',
-        name: 'forget-password',
-        component: () => import("../views/management-account/forget-passsword.vue"),
-        meta: {
-            title: 'Forget Password'
-        }
-    },
     //DASHBOARD
     {
         path: '/dashboard',
