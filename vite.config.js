@@ -8,6 +8,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   build: {
+    brotliSize: false,
     chunkSizeWarningLimit: 2000,
   },
 })

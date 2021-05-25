@@ -1335,6 +1335,7 @@ export default defineComponent({
     };
     const addData = async () => {
       submitted.value = true;
+      add.value = false;
       const today = new Date();
       let todayYear = today.getFullYear();
       let todayMonth = today.getMonth() + 1;
@@ -1488,6 +1489,8 @@ export default defineComponent({
             });
           product.value = {};
           // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }else{
+          add.value = true;
         }
       });
     };
