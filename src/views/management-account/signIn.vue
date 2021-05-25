@@ -101,20 +101,20 @@ export default {
 
     function postLoginData() {
       axios
-        .post("http://127.0.0.1:8000/api/login", loginData)
+        .post("https://serve.natunasandmine.com/api/login", loginData)
         .then((result) => {
           validation.value = result.data;
-          // function alert() {
-          //   return Swal.fire({
-          //     position: "center",
-          //     icon: "success",
-          //     title: "Welcome Admin",
-          //     showConfirmButton: false,
-          //     timer: 1500,
-          //   });
-          // }
+          function alert() {
+            return Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Welcome Admin",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
           async function going() {
-            // await new alert(); 
+            await new alert();
             localStorage.setItem("auth", true);
             return router.push({
               name: "dashboard",

@@ -4,122 +4,122 @@ export default class Api {
     // Daftar pegawai
     // Mengambil Seluruh Data
     getPegawai() {
-        return axios.get(`http://127.0.0.1:8000/api/daftarPegawai`)
+        return axios.get(`https://serve.natunasandmine.com/api/daftarPegawai`)
     }
     // Menambah Data
     addPegawai(value) {
-        return axios.post(`http://127.0.0.1:8000/api/daftarPegawai`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/daftarPegawai`, value)
     }
     // Mengubah Data
     editPegawai(params, value) {
-        return axios.put(`http://127.0.0.1:8000/api/daftarPegawai/${params}`, value)
+        return axios.put(`https://serve.natunasandmine.com/api/daftarPegawai/${params}`, value)
     }
     //Menghapus Data
     deletePegawai(params) {
-        return axios.delete(`http://127.0.0.1:8000/api/daftarPegawai/${params}`)
+        return axios.delete(`https://serve.natunasandmine.com/api/daftarPegawai/${params}`)
     }
     
     //KASIR
     // Mengambil Seluruh Data
     getKasir() {
-        return axios.get(`http://127.0.0.1:8000/api/daftarKasir`)
+        return axios.get(`https://serve.natunasandmine.com/api/daftarKasir`)
     }
     // Menambah Data
     addKasir(value) {
-        return axios.post(`http://127.0.0.1:8000/api/daftarKasir`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/daftarKasir`, value)
     }
     // Mengubah Data
     editKasir(params, value) {
         console.log(`${params}:${value}`)
-        return axios.put(`http://127.0.0.1:8000/api/daftarKasir/${params}`, value)
+        return axios.put(`https://serve.natunasandmine.com/api/daftarKasir/${params}`, value)
     }
     //Menghapus Data
     deleteKasir(params) {
-        return axios.delete(`http://127.0.0.1:8000/api/daftarKasir/${params}`)
+        return axios.delete(`https://serve.natunasandmine.com/api/daftarKasir/${params}`)
     }
 
     //Dompet
     getDompetKasir() {
-        return axios.get('http://127.0.0.1:8000/api/dompetKasir')
+        return axios.get('https://serve.natunasandmine.com/api/dompetKasir')
     }
     getDompetPegawai() {
-        return axios.get('http://127.0.0.1:8000/api/dompetPegawai')
+        return axios.get('https://serve.natunasandmine.com/api/dompetPegawai')
     }
 
     // Upah Pegawai
     // Mengambil Seluruh Data
     getUpahPegawai() {
-        return axios.get(`http://127.0.0.1:8000/api/upahPegawai`)
+        return axios.get(`https://serve.natunasandmine.com/api/upahPegawai`)
     }
     // Menambah Data
     addUpahPegawai(value) {
-        return axios.post(`http://127.0.0.1:8000/api/upahPegawai`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/upahPegawai`, value)
     }
     // Mengubah Data
     editUpahPegawai(params, value) {
         console.log(`${params}:${value}`)
-        return axios.put(`http://127.0.0.1:8000/api/upahPegawai/${params}`, value)
+        return axios.put(`https://serve.natunasandmine.com/api/upahPegawai/${params}`, value)
     }
     //Menghapus Data
     deleteUpahPegawai(params) {
-        return axios.delete(`http://127.0.0.1:8000/api/upahPegawai/${params}`)
+        return axios.delete(`https://serve.natunasandmine.com/api/upahPegawai/${params}`)
     }
     // Upah Kasir
     // Mengambil Seluruh Data
     getUpahKasir() {
-        return axios.get(`http://127.0.0.1:8000/api/upahKasir`)
+        return axios.get(`https://serve.natunasandmine.com/api/upahKasir`)
     }
     // Menambah Data
     addUpahKasir(value) {
-        return axios.post(`http://127.0.0.1:8000/api/upahKasir`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/upahKasir`, value)
     }
     // Mengubah Data
     editUpahKasir(params, value) {
         console.log(`${params}:${value}`)
-        return axios.put(`http://127.0.0.1:8000/api/upahKasir/${params}`, value)
+        return axios.put(`https://serve.natunasandmine.com/api/upahKasir/${params}`, value)
     }
     //Menghapus Data
     deleteUpahKasir(params) {
-        return axios.delete(`http://127.0.0.1:8000/api/upahKasir/${params}`)
+        return axios.delete(`https://serve.natunasandmine.com/api/upahKasir/${params}`)
     }
     // Harga Pasir
     // Mengambil Seluruh Data
     getHargaPasir() {
-        return axios.get(`http://127.0.0.1:8000/api/hargaPasir`)
+        return axios.get(`https://serve.natunasandmine.com/api/hargaPasir`)
     }
     // Menambah Data
     addHargaPasir(value) {
-        return axios.post(`http://127.0.0.1:8000/api/hargaPasir`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/hargaPasir`, value)
     }
     // Mengubah Data
     editHargaPasir(params, value) {
         console.log(`${params}:${value}`)
-        return axios.put(`http://127.0.0.1:8000/api/hargaPasir/${params}`, value)
+        return axios.put(`https://serve.natunasandmine.com/api/hargaPasir/${params}`, value)
     }
     //Menghapus Data
     deleteHargaPasir(params) {
-        return axios.delete(`http://127.0.0.1:8000/api/hargaPasir/${params}`)
+        return axios.delete(`https://serve.natunasandmine.com/api/hargaPasir/${params}`)
     }
 
     // resoucesForm
     getResourcesForm() {
-        return axios.get(`http://127.0.0.1:8000/api/rf`)
+        return axios.get(`https://serve.natunasandmine.com/api/rf`)
     }
 
     //pencatatan
     getPencatatan() {
-        return axios.get(`http://127.0.0.1:8000/api/pencatatan`)
+        return axios.get(`https://serve.natunasandmine.com/api/pencatatan`)
     }
     addPencatatan(value) {
-        return axios.post(`http://127.0.0.1:8000/api/pencatatan`, value)
+        return axios.post(`https://serve.natunasandmine.com/api/pencatatan`, value)
     }
     //BON Truk
     getBon() {
-        return axios.get(`http://127.0.0.1:8000/api/bon`)
+        return axios.get(`https://serve.natunasandmine.com/api/bon`)
     }
 
     //Dashboard
     getDashboard() {
-        return axios.get(`http://127.0.0.1:8000/api/dashboard`)
+        return axios.get(`https://serve.natunasandmine.com/api/dashboard`)
     }
 }
