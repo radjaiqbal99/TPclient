@@ -101,7 +101,7 @@ export default {
 
     function postLoginData() {
       axios
-        .post("https://serve.natunasandmine.com/api/login", loginData)
+        .post("https://server.natunasandmine.com/api/login", loginData)
         .then((result) => {
           validation.value = result.data;
           function alert() {
