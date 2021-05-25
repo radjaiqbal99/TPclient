@@ -33,9 +33,10 @@
             <div class="row row-deck row-cards">
               <div class="col-12 bg">
                 <div class="card mb-3 p-3 pt-4">
-                  <div class="card-body">
+                  <div class="card-body" style="overflow: scroll;">
                     <apexchart
                       height="300"
+                      width="3000"
                       :options="chartOptions"
                       :series="series"
                     ></apexchart>
