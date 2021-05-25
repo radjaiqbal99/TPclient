@@ -24,13 +24,6 @@
                 <div class="card" style="">
                   <Toolbar class="p-mb-0 bg-white" style="">
                     <template #left>
-                      <Button
-                        label="Tambah"
-                        icon="pi pi-plus"
-                        class="p-button-success p-mr-2 p-button-outlined"
-                        style="margin-right: 5%"
-                        @click="openNew"
-                      />
                       <!-- <Button
                         label="Unduh"
                         icon="pi pi-upload"
@@ -59,7 +52,6 @@
                     :resizableColumns="true"
                     columnResizeMode="fit"
                     class=""
-                    showGridlines
                     v-model:selection="selectedData"
                     selectionMode="multiple"
                     :metaKeySelection="false"
@@ -68,6 +60,9 @@
                     dataKey="id"
                     :paginator="true"
                     :rows="10"
+                    v-model:expandedRows="expandedRows"
+                    @rowExpand="onRowExpand"
+                    @rowCollapse="onRowCollapse"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                     :rowsPerPageOptions="[5, 10, 25, 50, 100]"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
@@ -75,222 +70,144 @@
                     v-model:filters="filters1"
                     filterDisplay="menu"
                     :loading="loading1"
-                    :globalFilterFields="['id', 'name','no_hp','alamat']"
+                    :globalFilterFields="['id_dompet', 'name', 'saldo']"
                   >
-                    <template #footer>
-                      <div class="d-flex justify-content-end">
-                        <Button
-                          label="Unduh"
-                          icon="pi pi-upload"
-                          class="p-button-help p-button-outlined"
-                          @click="exportCSV($event)"
-                        />
-                      </div>
-                    </template>
+                    
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
                     <template #loading>
                       <div class="text-center">Load data . . .</div>
-                    </template> 
+                    </template>
+                    <template #header>
+                      <div
+                        class="
+                          table-header
+                          p-d-flex p-flex-column p-flex-md-row p-jc-md-between
+                        "
+                      >
+                        <div class=""></div>
+                        <div class="">
+                          <Button
+                            icon="pi pi-plus"
+                            label=""
+                            @click="expandAll"
+                            class="p-mr-2 p-button-text"
+                          />
+                          <Button
+                            class="p-button-text"
+                            icon="pi pi-minus"
+                            label=""
+                            @click="collapseAll"
+                          />
+                        </div>
+                      </div>
+                    </template>
+                    <Column :expander="true" headerStyle="width: 3rem" />
                     <Column
-                      field="id"
-                      header="ID"
-                      footer="ID"
+                      field="id_bon"
+                      header="Id Bon"
                       :sortable="true"
                       style="width: 6rem"
                     ></Column>
                     <Column
                       field="name"
                       header="Nama"
-                      footer="Nama"
                       :sortable="true"
                     ></Column>
-                    <Column
-                      field="no_hp"
-                      header="No. HP"
-                      footer="No. HP"
-                      :sortable="true"
-                    ></Column>
-                    <Column
-                      field="alamat"
-                      header="Alamat"
-                      footer="Alamat"
-                      :sortable="true"
-                    ></Column>
-
-                    <Column
-                      class=""
-                      :resizableColumns="false"
-                      :exportable="false"
-                      style="width: 3.5rem"
+                    <Column field="saldo" header="Total Bon" :sortable="true">
+                      <template #body="slotProps" sortable>
+                        Rp {{ formatCurrency(slotProps.data.saldo) }}
+                      </template></Column
                     >
-                      <template #body="slotProps">
-                        <div class="d-flex justify-content-end">
-                          <Button
-                            icon="pi pi-pencil"
-                            class="p-button-rounded p-button-outlined p-button-success p-mr-4"
-                            style="margin-right: 1rem"
-                            @click="editProduct(slotProps.data)"
-                          />
-                          <Button
-                            icon="pi pi-trash"
-                            class="p-button-rounded p-button-outlined p-button-danger"
-                            @click="deleteProduct(slotProps.data, $event)"
-                          />
-                        </div>
-                      </template>
-                    </Column>
+                    <template #expansion="slotProps">
+                      <div
+                        class="orders-subtable"
+                        style="
+                          margin: -15px;
+                          padding: 15px;
+                          background-color: #e3f2fd;
+                        "
+                      >
+                        <Chip
+                          v-text="slotProps.data.name"
+                          class="mb-3 text-green"
+                          style="font-size: 12pt; background-color: azure"
+                        />
+                        <DataTable
+                          :value="slotProps.data.transaksi"
+                          responsiveLayout="scroll"
+                          :resizableColumns="true"
+                          columnResizeMode="fit"
+                          v-model:selection="selectedData"
+                          selectionMode="multiple"
+                          :metaKeySelection="false"
+                          :paginator="true"
+                          :rows="10"
+                          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                          :rowsPerPageOptions="[5, 10, 25, 50, 100]"
+                          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+                        >
+                          <Column
+                            field="id_bon"
+                            header="ID Bon"
+                            sortable
+                          ></Column>
+                          <Column
+                            field="no_transaksi"
+                            header="Nomor Transaksi"
+                            sortable
+                          ></Column>
+                          <Column
+                            field="tgl_transaksi"
+                            header="Tanggal Transaksi"
+                            sortable
+                          ></Column>
+                          <Column
+                            field="jenis_transaksi"
+                            header="Jenis Transaksi"
+                            sortable
+                          >
+                            <template #body="slotProps">
+                              <Badge
+                                v-if="slotProps.data.jenis_transaksi === 'Pembayaran'"
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="success"
+                                class=""
+                              ></Badge>
+                              <Badge
+                                v-if="slotProps.data.jenis_transaksi === 'Bon'"
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="warning"
+                                class=""
+                              ></Badge></template
+                          ></Column>
+                          <Column
+                            field="kasir"
+                            header="Kasir"
+                            sortable
+                          ></Column>
+                          <Column
+                            field="satuan"
+                            header="Satuan"
+                            sortable
+                          ></Column>
+                          <Column
+                            field="qty"
+                            header="Qty"
+                            sortable
+                          ></Column>
+                          <Column field="Harga" header="Jumlah" sortable>
+                            <template #body="slotProps" sortable>
+                              Rp {{ formatCurrency(slotProps.data.Harga) }}
+                            </template>
+                          </Column>
+                        </DataTable>
+                      </div>
+                    </template>
                   </DataTable>
                 </div>
               </div>
-              <Dialog
-                v-model:visible="add"
-                :style="{ width: '450px' }"
-                header="Tambah Data"
-                :modal="true"
-                class="p-fluid"
-                @submit.prevent="store()"
-              >
-                <div class="p-field mb-2">
-                  <label for="name" class="mb-2">Nama</label>
-                  <InputText
-                    id="name"
-                    v-model.trim="product.name"
-                    required="true"
-                    placeholder="Masukkan Nama"
-                    autofocus
-                    :class="{ 'p-invalid': submitted && !product.name }"
-                  />
-                  <small class="p-error d-block " v-if="submitted && !product.name"
-                    >Name is required.</small
-                  >
-                  <label for="name" class="mb-2 mt-2">No. HP</label>
-                  <InputText
-                    id="no_hp"
-                    v-model.trim="product.no_hp"
-                    required="false"
-                    placeholder="Masukkan Nomor Hp"
-                    autofocus
-                  />
-                  
-                  <label for="name" class="mb-2 mt-2">Alamat</label>
-                  <Textarea
-                    id="alamat"
-                    :autoResize="true"
-                    rows="5"
-                    v-model.trim="product.alamat"
-                    required="false"
-                    placeholder="Masukkan alamat"
-                    autofocus
-                  />
-                  
-                </div>
-                <template #footer>
-                  <Button
-                    label="Cancel"
-                    icon="pi pi-times"
-                    class="p-button-text p-button-danger"
-                    @click="hideDialog"
-                  />
-                  <Button
-                    label="Save"
-                    icon="pi pi-check"
-                    class="p-button-text"
-                    @click="saveProduct"
-                  />
-                </template>
-              </Dialog>
-              <Dialog
-                v-model:visible="update"
-                :style="{ width: '450px' }"
-                header="Ubah Data"
-                :modal="true"
-                class="p-fluid"
-                @submit.prevent="store()"
-              >
-                <div class="p-field mb-2">
-                  <label for="name" class="mb-2">Nama</label>
-                  <InputText
-                    id="name"
-                    v-model.trim="product.name"
-                    required="true"
-                    placeholder="Masukkan Nama"
-                    autofocus
-                    :class="{ 'p-invalid': submitted && !product.name }"
-                  />
-                  <small class="p-error d-block " v-if="submitted && !product.name"
-                    >Name is required.</small
-                  >
-                  <label for="name" class="mb-2 mt-2">No. HP</label>
-                  <InputText
-                    id="no_hp"
-                    v-model.trim="product.no_hp"
-                    required="false"
-                    placeholder="Masukkan Nomor Hp"
-                    autofocus
-                  />
-                  
-                  <label for="name" class="mb-2 mt-2">Alamat</label>
-                  <Textarea
-                    id="alamat"
-                    :autoResize="true"
-                    rows="5"
-                    v-model.trim="product.alamat"
-                    required="false"
-                    placeholder="Masukkan alamat"
-                    autofocus
-                  />
-                  
-                </div>
-                <template #footer>
-                  <Button
-                    label="Cancel"
-                    icon="pi pi-times"
-                    class="p-button-text p-button-danger"
-                    @click="hideDialog"
-                  />
-                  <Button
-                    type="button"
-                    label="Save"
-                    icon="pi pi-check pi "
-                    class="p-button-text"
-                    :loading="loadingbutton"
-                    @click="saveProduct"
-                  />
-                </template>
-              </Dialog>
-              <Dialog
-                v-model:visible="deleteProductDialog"
-                :style="{ width: '450px' }"
-                header="Confirm"
-                :modal="true"
-              >
-                <div class="confirmation-content">
-                  <i
-                    class="pi pi-exclamation-triangle p-mr-3"
-                    style="font-size: 2rem"
-                  />
-                  <span v-if="product"
-                    >Are you sure you want to delete <b>{{ product.name }}</b
-                    >?</span
-                  >
-                </div>
-                <template #footer>
-                  <Button
-                    label="No"
-                    icon="pi pi-times"
-                    class="p-button-text"
-                    @click="deleteProductDialog = false"
-                  />
-                  <Button
-                    label="Yes"
-                    icon="pi pi-check"
-                    class="p-button-text"
-                    @click="deleteProduct"
-                  />
-                </template>
-              </Dialog>
               <div class="col-12"></div>
             </div>
           </div>
@@ -301,10 +218,9 @@
   </body>
 </template>
 <script>
-import apiPegawai from "/src/service/Api";
+import apiKasir from "/src/service/Api";
 import { defineComponent } from "vue";
 import Swal from "sweetalert2";
-import axios from "axios";
 import { ref, onMounted } from "vue";
 import { useToast } from "primevue/usetoast";
 import { useConfirm } from "primevue/useconfirm";
@@ -316,8 +232,8 @@ import { FilterMatchMode, FilterOperator } from "primevue/api";
 export default defineComponent({
   setup() {
     onMounted(async () => {
-      await ApiPegawai.value
-        .getPegawai()
+      await ApiKasir.value
+        .getBon()
         .then((res) => {
           loading1.value = false;
           products.value = res.data;
@@ -340,12 +256,13 @@ export default defineComponent({
     const filters1 = ref({
       global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
-    const ApiPegawai = ref(new apiPegawai());
+    const ApiKasir = ref(new apiKasir());
     const loadingbutton = ref(false);
     const loading1 = ref(true);
+    const expandedRows = ref([]);
     const selectedData = ref();
     const router = useRouter();
-    const items = ref([{ label: "Daftar Pegawai", to: "/daftarPegawai" }]);
+    const items = ref([{ label: "BON", to: "/bon" }]);
     const confirm = useConfirm();
     const toast = useToast();
     const dt = ref();
@@ -379,13 +296,37 @@ export default defineComponent({
       }, 250);
     };
 
-    const formatCurrency = (value) => {
-      if (value)
-        return value.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        });
-      return;
+    const onRowExpand = (event) => {
+      toast.add({
+        severity: "info",
+        summary: "Product Expanded",
+        detail: event.data.name,
+        life: 3000,
+      });
+    };
+    const onRowCollapse = (event) => {
+      toast.add({
+        severity: "success",
+        summary: "Product Collapsed",
+        detail: event.data.name,
+        life: 3000,
+      });
+    };
+    const expandAll = () => {
+      expandedRows.value = products.value.filter((p) => p.id);
+      toast.add({
+        severity: "success",
+        summary: "All Rows Expanded",
+        life: 3000,
+      });
+    };
+    const collapseAll = () => {
+      expandedRows.value = null;
+      toast.add({
+        severity: "success",
+        summary: "All Rows Collapsed",
+        life: 3000,
+      });
     };
     const openNew = () => {
       product.value = {};
@@ -397,88 +338,7 @@ export default defineComponent({
       update.value = false;
       submitted.value = false;
     };
-    const saveProduct = async () => {
-      submitted.value = true;
-      loadingbutton.value = true;
-      if (product.value.name.trim()) {
-        if (product.value.id) {
-          await ApiPegawai.value
-            .editPegawai(product.value.id, product.value)
-            .then(async () => {
-              loadingbutton.value = false;
-              loading1.value = true;
-              update.value = false;
-              toast.add({
-                severity: "success",
-                summary: "Ubah data",
-                detail: `Berhasil mengubah id ( ${product.value.id} )`,
-                life: 3000,
-              });
-              //==============================
-              await ApiPegawai.value
-                .getPegawai()
-                .then((res) => {
-                  loading1.value = false;
-                  products.value = res.data;
-                })
-                .catch((err) => {
-                  toast.add({
-                    severity: "error",
-                    summary: "Gagal",
-                    detail: "Gagal memuat data",
-                    life: 3000,
-                  });
-                });
-            })
-            .catch((err) => {
-              loadingbutton.value = false;
-              update.value = false;
-              toast.add({
-                severity: "error",
-                summary: "Gagal",
-                detail: `Gagal mengubah id ( ${product.value.id} )`,
-                life: 3000,
-              });
-            });
-          product.value = {};
-        } else {
-          await ApiPegawai.value
-            .addPegawai(product.value)
-            .then(async () => {
-              add.value = false;
-              toast.add({
-                severity: "success",
-                summary: "Tambah Data",
-                detail: `Berhasil menambahkan ( ${product.value.name} )`,
-                life: 3000,
-              });
-              await ApiPegawai.value
-                .getPegawai()
-                .then((res) => {
-                  products.value = res.data;
-                })
-                .catch((err) => {
-                  toast.add({
-                    severity: "error",
-                    summary: "Gagal",
-                    detail: `Gagal memuat data`,
-                    life: 3000,
-                  });
-                });
-            })
-            .catch((err) => {
-              add.value = false;
-              toast.add({
-                severity: "error",
-                summary: "Failed",
-                detail: `Gagal menambahkan ( ${product.value.name} )`,
-                life: 3000,
-              });
-            });
-          product.value = {};
-        }
-      }
-    };
+    const saveProduct = async () => {};
     const editProduct = (prod) => {
       product.value = { ...prod };
       update.value = true;
@@ -487,55 +347,7 @@ export default defineComponent({
       product.value = prod;
       deleteProductDialog.value = true;
     };
-    const deleteProduct = (prod, event) => {
-      product.value = prod;
-      console.log(product.value);
-      confirm.require({
-        target: event.currentTarget,
-        message: `Kamu akan mengahpus id ( ${product.value.id} )`,
-        icon: "pi pi-info-circle",
-        acceptClass: "p-button-danger",
-        accept: async () => {
-          await ApiPegawai.value
-            .deletePegawai(product.value.id)
-            .then(async () => {
-              deleteProductDialog.value = false;
-              toast.add({
-                severity: "success",
-                summary: "Berhasil",
-                detail: `Berhasil menghapus id ( ${product.value.id} )`,
-                life: 3000,
-              });
-              product.value = {};
-              await axios
-                .get("http://127.0.0.1:8000/api/daftarPegawai")
-                .then((res) => {
-                  products.value = res.data;
-                })
-                .catch((err) => {
-                  toast.add({
-                    severity: "error",
-                    summary: "Gagal",
-                    detail: `Gagal memuat data`,
-                    life: 3000,
-                  });
-                });
-            })
-            .catch((err) => {
-              deleteProductDialog.value = false;
-              toast.add({
-                severity: "error",
-                summary: "Gagal",
-                detail: `Gagal menghapus id ( ${product.value.id} )`,
-                life: 3000,
-              });
-              product.value = {};
-              console.log(product.value.id);
-            });
-        },
-        reject: () => {},
-      });
-    };
+    const deleteProduct = (prod, event) => {};
     const findIndexById = (id) => {
       let index = -1;
       for (let i = 0; i < products.value.length; i++) {
@@ -568,8 +380,16 @@ export default defineComponent({
         life: 3000,
       });
     };
+    const formatCurrency = (value) => {
+      return value.toLocaleString({ style: "currency", currency: "USD" });
+    };
 
     return {
+      expandedRows,
+      onRowExpand,
+      onRowCollapse,
+      expandAll,
+      collapseAll,
       loadingbutton,
       searchCountry,
       dt,
@@ -602,69 +422,6 @@ export default defineComponent({
       items,
     };
   },
-  // mounted() {
-  //   //API Call
-  //   axios.get("http://127.0.0.1:8000/api/daftarPegawai").then((res) => {
-  //     this.products = res.data;
-  //   });
-  // },
-  // data() {
-  //   return {
-  //     home: { icon: "pi pi-home", to: "/" },
-  //     items: [{ label: "Daftar Pegawai", to: "/daftarPegawai" }],
-  //     users: [],
-  //     router : useRouter(),
-  //     products: null,
-  //     productDialog: false,
-  //     deleteProductDialog: false,
-  //     deleteProductsDialog: false,
-  //     product: [],
-  //     selectedProducts: null,
-  //     filters: [],
-  //     submitted: false,
-  //   };
-  // },
-  // methods: {
-  //   openNew() {
-  //     this.product = {};
-  //     this.submitted = false;
-  //     this.productDialog = true;
-  //   },
-  //   hideDialog() {
-  //     this.productDialog = false;
-  //     this.submitted = false;
-  //   },
-  //   saveProduct() {
-  //     this.submitted = true;
-  //     if (this.product.name.trim()) {
-  //       axios.post(
-  //         "http://127.0.0.1:8000/api/daftarPegawai",
-  //         this.product
-  //       )
-  //       .then(() => {
-  //         this.productDialog = false;
-  //         this.product = {};
-  //         this.router.push({
-  //           path:"/daftarPegawai"
-  //         })
-  //       }).catch((err) => {
-
-  //       });
-  //       // this.products.push(this.product);
-  //       console.log(this.product.name)
-  //       // this.$toast.add({
-  //       //   severity: "success",
-  //       //   summary: "Successful",
-  //       //   detail: "Product Created",
-
-  //       //   life: 3000,
-  //       // });
-  //     }
-  //   },
-  //   exportCSV() {
-  //     this.$refs.dt.exportCSV();
-  //   },
-  // },
   components: {
     "header-component": header,
     "footer-component": footer,

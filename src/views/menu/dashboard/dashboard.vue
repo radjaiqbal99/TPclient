@@ -31,527 +31,201 @@
         <div class="page-body">
           <div class="container-xl">
             <div class="row row-deck row-cards">
-              <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body p-2 text-center">
-                    <div class="text-end text-green">
-                      <span
-                        class="text-green d-inline-flex align-items-center lh-1"
-                      >
-                      </span>
-                    </div>
-                    <div class="text-muted m-0">New Tickets</div>
-                    <div class="h1 mb-3">43</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body p-2 text-center">
-                    <div class="text-end text-green">
-                      <span
-                        class="text-green d-inline-flex align-items-center lh-1"
-                      >
-                      </span>
-                    </div>
-                    <div class="text-muted m-0">New Tickets</div>
-                    <div class="h1 mb-3">43</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card">
-                  <div class="card-body p-2 text-center">
-                    <div class="text-end text-green">
-                      <span
-                        class="text-green d-inline-flex align-items-center lh-1"
-                      >
-                      </span>
-                    </div>
-                    <div class="text-muted m-0">New Tickets</div>
-                    <div class="h1 mb-3">43</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card" style="height: calc(24rem + 10px)">
-                  <div class="card-header">
-                    <h2 class="page-title">ACTIVITY</h2>
-                  </div>
-                  <div
-                    class="card-body card-body-scrollable card-body-scrollable-shadow"
-                  >
-                    <div class="divide-y">
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar">JL</span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Jeffie Lewzey</strong> commented on your
-                              <strong>"I'm not a witch."</strong> post.
-                            </div>
-                            <div class="text-muted">yesterday</div>
-                          </div>
-                          <div class="col-auto align-self-center">
-                            <div class="badge bg-primary"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              It's <strong>Mallory Hulme</strong>'s birthday.
-                              Wish him well!
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                          <div class="col-auto align-self-center">
-                            <div class="badge bg-primary"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Dunn Slane</strong> posted
-                              <strong>"Well, what do you want?"</strong>.
-                            </div>
-                            <div class="text-muted">today</div>
-                          </div>
-                          <div class="col-auto align-self-center">
-                            <div class="badge bg-primary"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Emmy Levet</strong> created a new project
-                              <strong>Morning alarm clock</strong>.
-                            </div>
-                            <div class="text-muted">4 days ago</div>
-                          </div>
-                          <div class="col-auto align-self-center">
-                            <div class="badge bg-primary"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Maryjo Lebarree</strong> liked your photo.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar">EP</span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Egan Poetz</strong> registered new client
-                              as <strong>Trilia</strong>.
-                            </div>
-                            <div class="text-muted">yesterday</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Kellie Skingley</strong> closed a new deal
-                              on project
-                              <strong>Pen Pineapple Apple Pen</strong>.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Christabel Charlwood</strong> created a
-                              new project for <strong>Wikibox</strong>.
-                            </div>
-                            <div class="text-muted">4 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar">HS</span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Haskel Shelper</strong> change status of
-                              <strong>Tabler Icons</strong> from
-                              <strong>open</strong> to <strong>closed</strong>.
-                            </div>
-                            <div class="text-muted">today</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Lorry Mion</strong> liked
-                              <strong>Tabler UI Kit</strong>.
-                            </div>
-                            <div class="text-muted">yesterday</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Leesa Beaty</strong> posted new video.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Perren Keemar</strong> and 3 others
-                              followed you.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar">SA</span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Sunny Airey</strong> upload 3 new photos
-                              to category <strong>Inspirations</strong>.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Geoffry Flaunders</strong> made a
-                              <strong>$10</strong> donation.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Thatcher Keel</strong> created a profile.
-                            </div>
-                            <div class="text-muted">3 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Dyann Escala</strong> hosted the event
-                              <strong>Tabler UI Birthday</strong>.
-                            </div>
-                            <div class="text-muted">4 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar" style=""></span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Avivah Mugleston</strong> mentioned you on
-                              <strong>Best of 2020</strong>.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="row">
-                          <div class="col-auto">
-                            <span class="avatar">AA</span>
-                          </div>
-                          <div class="col">
-                            <div class="text-truncate">
-                              <strong>Arlie Armstead</strong> sent a Review
-                              Request to <strong>Amanda Blake</strong>.
-                            </div>
-                            <div class="text-muted">2 days ago</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row row-cards">
-                  <div class="col-12">
-                    <div class="card card-sm">
-                      <div class="card-body">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <span class="bg-blue text-white avatar"
-                              ><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path
-                                  d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
-                                />
-                                <path d="M12 3v3m0 12v3" />
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="col">
-                            <div class="font-weight-medium">132 Sales</div>
-                            <div class="text-muted">12 waiting payments</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="card card-sm">
-                      <div class="card-body">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <span class="bg-green text-white avatar"
-                              ><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <circle cx="6" cy="19" r="2" />
-                                <circle cx="17" cy="19" r="2" />
-                                <path d="M17 17h-11v-14h-2" />
-                                <path d="M6 5l14 1l-1 7h-13" />
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="col">
-                            <div class="font-weight-medium">78 Orders</div>
-                            <div class="text-muted">32 shipped</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="card card-sm">
-                      <div class="card-body">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <span class="bg-yellow text-white avatar"
-                              ><!-- Download SVG icon from http://tabler-icons.io/i/users -->
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <circle cx="9" cy="7" r="4" />
-                                <path
-                                  d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
-                                />
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="col">
-                            <div class="font-weight-medium">1352 Members</div>
-                            <div class="text-muted">163 registered today</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="card card-sm">
-                      <div class="card-body">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <span class="bg-twitter text-white avatar"
-                              ><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path
-                                  d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="col">
-                            <div class="font-weight-medium">623 Shares</div>
-                            <div class="text-muted">16 today</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="card card-sm">
-                      <div class="card-body">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <span class="bg-facebook text-white avatar"
-                              ><!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path
-                                  d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="col">
-                            <div class="font-weight-medium">132 Likes</div>
-                            <div class="text-muted">21 today</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div class="col-12 bg">
+                <div class="card mb-3 p-3 pt-4">
+                  <div class="card-body">
+                    <apexchart
+                      height="300"
+                      :options="chartOptions"
+                      :series="series"
+                    ></apexchart>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="row row-deck row-cards" style="height: auto">
+              <div class="col-12 col-md-12">
+                <div class="row row-deck row-cards">
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>JUMLAH PENJUALAN</b></div>
+                        <div class="h1 mb-3">{{ jumlahPenjualan }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>PENDAPATAN BERSIH</b></div>
+                        <div class="h1 mb-3">Rp {{ formatCurrency(pendapatanBersih) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center p-text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>BON</b></div>
+                        <div class="h1 mb-3">Rp {{ formatCurrency(Bon) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>UPAH PEGAWAI</b></div>
+                        <div class="h1 mb-3">Rp {{ formatCurrency(upahPegawai) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>UPAH KASIR</b></div>
+                        <div class="h1 mb-3">Rp {{ formatCurrency(upahKasir) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>PENGELUARAN TAMBANG</b></div>
+                        <div class="h1 mb-3">Rp {{ formatCurrency(pengeluaranTambang) }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>JUMLAH PEGAWAI</b></div>
+                        <div class="h1 mb-3">{{ jumlahPegawai }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-3 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>JUMLAH KASIR</b></div>
+                        
+                        <div class="h1 mb-3">{{ jumlahKasir }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body p-2 mt-2 text-center">
+                        <div class="text-end text-green">
+                          <span
+                            class="
+                              text-green
+                              d-inline-flex
+                              align-items-center
+                              lh-1
+                            "
+                          >
+                          </span>
+                        </div>
+                        <div class="text-muted mb-1" style="font-size:14pt;"><b>JUMLAH TRANSAKSI</b></div>
+                        <div class="h1 mb-3">{{ jumlahTransaksi }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
+      
       <footer-component></footer-component>
     </div>
   </body>
@@ -560,19 +234,116 @@
 <script>
 import header from "/src/views/component/header.vue";
 import footer from "/src/views/component/footer.vue";
+import apiDashboard from "/src/service/Api";
 import { ref, onMounted } from "vue";
+import { data } from "jquery";
 
 export default {
-  setup(){
-    const active =ref(["active"])
+  data: function () {
+    return {};
+  },
+  setup() {
+    onMounted(async () => {
+      await ApiDashboard.value
+        .getDashboard()
+        .then(async (res) => {
+          date.value = res.data.date;
+          jumlah.value = res.data.jumlah;
+          jumlahPenjualan.value=res.data.jumlahpenjualan
+          pendapatanBersih.value = res.data.pendapatanBersih;
+          Bon.value = res.data.jumlahBon;
+          upahPegawai.value = res.data.upahpegawai;
+          upahKasir.value = res.data.upahkasir;
+          jumlahKasir.value = res.data.jumlahkasir;
+          pengeluaranTambang.value = res.data.pengeluarantambang;
+          jumlahPegawai.value = res.data.jumlahpegawai;
+          jumlahTransaksi.value = res.data.jumlahtransaksi;
+          console.log(date.value);
+          console.log(jumlah.value);
+        })
+        .catch((err) => {
+          loading1.value = false;
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: err,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+    });
+    const product = ref({});
+    const products = ref({});
+    const date = ref([]);
+    const jumlahPenjualan = ref([]);
+    const pendapatanBersih = ref([]);
+    const Bon = ref([]);
+    const upahPegawai = ref([]);
+    const upahKasir = ref([]);
+    const pengeluaranTambang = ref([]);
+    const jumlahPegawai = ref([]);
+    const jumlahKasir = ref([]);
+    const jumlahTransaksi = ref([]);
+    const jumlah = ref([]);
+    const chartOptions = ref({
+      chart: {
+        id: "vuechart-example",
+        type: "area",
+        height: "300",
+      },
+      title: {
+        text: "PENJUALAN PASIR",
+        align: "left",
+      },
+      subtitle: {
+        text: "Jumlah penjualan pasir bulan ini",
+        align: "left",
+      },
+      xaxis: {
+        categories: date,
+      },
+    });
+    const series = ref([
+      {
+        name: "Jumlah Penjualan",
+        data: jumlah,
+      },
+    ]);
+    const ApiDashboard = ref(new apiDashboard());
+    const active = ref(["active"]);
     const home = ref({
       icon: "pi pi-home",
       to: "/",
     });
-    return{
+    const items = ref([{ label: "Dashboard", to: "/dashboard" }]);
+    const formatCurrency = (value) => {
+      return value.toLocaleString({
+        style: "currency",
+        currency: "IDP",
+      });
+    };
+
+    return {
+      formatCurrency,
+      date,
+      jumlahPenjualan,
+      jumlah,
+      Bon,
+      upahKasir,
+      pengeluaranTambang,
+      jumlahKasir,
+      jumlahTransaksi,
+      jumlahPegawai,
+      upahPegawai,
+      pendapatanBersih,
+      product,
+      products,
+      chartOptions,
+      series,
       active,
-      home
-    }
+      items,
+      home,
+    };
   },
   components: {
     "header-component": header,

@@ -101,7 +101,7 @@ export default {
 
     function postLoginData() {
       axios
-        .post("https://server.natunasandmine.com/api/login", loginData)
+        .post("http://127.0.0.1:8000/api/login", loginData)
         .then((result) => {
           validation.value = result.data;
           function alert() {

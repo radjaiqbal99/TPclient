@@ -75,7 +75,7 @@
                     v-model:filters="filters1"
                     filterDisplay="menu"
                     :loading="loading1"
-                    :globalFilterFields="['satuan','upah']"
+                    :globalFilterFields="['satuan', 'upah']"
                   >
                     <!-- <template #header>
                       <div class="table-header">
@@ -88,7 +88,7 @@
                         </span>
                       </div>
                     </template> -->
-                    <template #footer>
+                    <!-- <template #footer>
                       <div class="d-flex justify-content-end">
                         <Button
                           label="Unduh"
@@ -97,7 +97,7 @@
                           @click="exportCSV($event)"
                         />
                       </div>
-                    </template>
+                    </template> -->
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
@@ -120,7 +120,9 @@
                       field="upah"
                       header="Upah"
                       :sortable="true"
-                    ></Column>
+                    ><template #body="slotProps" sortable>
+                              Rp {{ formatCurrency(slotProps.data.upah) }}
+                            </template></Column>
                     <Column
                       class=""
                       :resizableColumns="false"
@@ -131,13 +133,20 @@
                         <div class="d-flex justify-content-end">
                           <Button
                             icon="pi pi-pencil"
-                            class="p-button-rounded p-button-outlined p-button-success p-mr-4"
+                            class="
+                              p-button-rounded
+                              p-button-outlined
+                              p-button-success
+                              p-mr-4
+                            "
                             style="margin-right: 1rem"
                             @click="editProduct(slotProps.data)"
                           />
                           <Button
                             icon="pi pi-trash"
-                            class="p-button-rounded p-button-outlined p-button-danger"
+                            class="
+                              p-button-rounded p-button-outlined p-button-danger
+                            "
                             @click="deleteProduct(slotProps.data, $event)"
                           />
                         </div>
@@ -156,13 +165,18 @@
               >
                 <div class="p-field mb-2">
                   <label for="satuan" class="mb-2">Satuan</label>
-                  <InputText
+                  <Dropdown
                     id="satuan"
                     v-model.trim="product.satuan"
+                    :options="satuan"
                     required="true"
-                    placeholder="Masukkan Satuan"
                     autofocus
-                    :class="{ 'p-invalid': submitted && !product.satuan }"
+                    optionLabel="satuan"
+                    optionValue="satuan"
+                    placeholder="Pilih jenis transaksi"
+                    :class="{
+                      'p-invalid': submitted && !product.satuan,
+                    }"
                   />
                   <small
                     class="p-error d-block"
@@ -170,12 +184,11 @@
                     >Satuan is required.</small
                   >
                   <label for="upah" class="mb-2 mt-2">Upah</label>
-                  <InputText
+                  <InputNumber
                     id="upah"
-                    v-model.trim="product.upah"
+                    v-model="product.upah"
                     required="false"
                     placeholder="Masukkan Upah"
-                    autofocus
                     :class="{ 'p-invalid': submitted && !product.upah }"
                   />
                   <small
@@ -214,7 +227,7 @@
                     v-model.trim="product.satuan"
                     required="true"
                     placeholder="Masukkan Satuan"
-                    autofocus
+                    disabled
                     :class="{ 'p-invalid': submitted && !product.satuan }"
                   />
                   <small
@@ -223,9 +236,9 @@
                     >Satuan is required.</small
                   >
                   <label for="upah" class="mb-2 mt-2">Upah</label>
-                  <InputText
+                  <InputNumber
                     id="upah"
-                    v-model.trim="product.upah"
+                    v-model="product.upah"
                     required="false"
                     placeholder="Masukkan Upah"
                     autofocus
@@ -314,7 +327,8 @@ export default defineComponent({
         .getUpahKasir()
         .then((res) => {
           loading1.value = false;
-          products.value = res.data;
+          products.value = res.data.data;
+          satuan.value = res.data.satuan;
         })
         .catch((err) => {
           loading1.value = false;
@@ -338,8 +352,9 @@ export default defineComponent({
     const loadingbutton = ref(false);
     const loading1 = ref(true);
     const selectedData = ref();
+    const satuan = ref([]);
     const router = useRouter();
-    const items = ref([{ label: "Daftar Kasir", to: "/daftarKasir" }]);
+    const items = ref([{ label: "Upah Kasir", to: "/upahKasir" }]);
     const confirm = useConfirm();
     const toast = useToast();
     const dt = ref();
@@ -375,7 +390,7 @@ export default defineComponent({
 
     const formatCurrency = (value) => {
       if (value)
-        return value.toLocaleString("en-US", {
+        return value.toLocaleString( {
           style: "currency",
           currency: "USD",
         });
@@ -394,7 +409,7 @@ export default defineComponent({
     const saveProduct = async () => {
       submitted.value = true;
       loadingbutton.value = true;
-      console.log("here")
+      console.log("here");
       if (product.value.satuan.trim()) {
         if (product.value.id) {
           await ApiKasir.value
@@ -414,7 +429,8 @@ export default defineComponent({
                 .getUpahKasir()
                 .then((res) => {
                   loading1.value = false;
-                  products.value = res.data;
+                  products.value = res.data.data;
+                  satuan.value = res.data.satuan;
                 })
                 .catch((err) => {
                   toast.add({
@@ -450,7 +466,8 @@ export default defineComponent({
               await ApiKasir.value
                 .getUpahKasir()
                 .then((res) => {
-                  products.value = res.data;
+                  products.value = res.data.data;
+                  satuan.value = res.data.satuan;
                 })
                 .catch((err) => {
                   toast.add({
@@ -505,7 +522,8 @@ export default defineComponent({
               await ApiKasir.value
                 .getUpahKasir()
                 .then((res) => {
-                  products.value = res.data;
+                  satuan.value = res.data.satuan;
+                  products.value = res.data.data;
                 })
                 .catch((err) => {
                   toast.add({
@@ -565,6 +583,7 @@ export default defineComponent({
     };
 
     return {
+      satuan,
       loadingbutton,
       searchCountry,
       dt,

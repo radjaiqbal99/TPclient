@@ -29,8 +29,8 @@
                     <template #left>
                       <div class="p-inputgroup">
                         <Button
-                          label="Tambah"
-                          icon="pi pi-plus"
+                          label="TRANSAKSI"
+                          icon=""
                           class="p-button-success p-mr-2 p-button-outlined"
                           style="margin-right: 5%"
                           @click="openNew"
@@ -84,22 +84,24 @@
                           p-d-flex p-flex-column p-flex-md-row p-jc-md-between
                         "
                       >
+                        <div class=""></div>
                         <div class="">
                           <Button
                             icon="pi pi-plus"
-                            label="Expand All"
+                            label=""
                             @click="expandAll"
-                            class="p-mr-2"
+                            class="p-mr-2 p-button-text"
                           />
                           <Button
+                            class="p-button-text"
                             icon="pi pi-minus"
-                            label="Collapse All"
+                            label=""
                             @click="collapseAll"
                           />
                         </div>
                       </div>
                     </template>
-                    <template #footer>
+                    <!-- <template #footer>
                       <div class="d-flex justify-content-end">
                         <Button
                           label="Unduh"
@@ -108,7 +110,7 @@
                           @click="exportCSV($event)"
                         />
                       </div>
-                    </template>
+                    </template> -->
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
@@ -118,55 +120,22 @@
                     <Column :expander="true" headerStyle="width: 3rem" />
                     <Column
                       field="id"
-                      header="ID"
+                      header="No"
                       :sortable="true"
                       style="width: 6rem"
                     ></Column>
                     <Column
-                      field="name"
-                      header="Nama"
+                      field="tgl"
+                      header="Tanggal Transaksi"
                       :sortable="true"
                     ></Column>
                     <Column
-                      field="no_hp"
-                      header="No. HP"
+                      field="jumlahTransaksi"
+                      header="Jumlah Transaksi"
                       :sortable="true"
                     ></Column>
-                    <Column
-                      field="alamat"
-                      header="Alamat"
-                      :sortable="true"
-                    ></Column>
-                    <Column
-                      class=""
-                      :resizableColumns="false"
-                      :exportable="false"
-                      style="width: 3.5rem"
-                    >
-                      <template #body="slotProps">
-                        <div class="d-flex justify-content-end">
-                          <Button
-                            icon="pi pi-pencil"
-                            class="
-                              p-button-rounded
-                              p-button-outlined
-                              p-button-success
-                              p-mr-4
-                            "
-                            style="margin-right: 1rem"
-                            @click="editProduct(slotProps.data)"
-                          />
-                          <Button
-                            icon="pi pi-trash"
-                            class="
-                              p-button-rounded p-button-outlined p-button-danger
-                            "
-                            @click="deleteProduct(slotProps.data, $event)"
-                          />
-                        </div>
-                      </template>
-                    </Column>
-                    <template #expansion="slotProps" class="">
+
+                    <template #expansion="slotProps">
                       <div
                         class="orders-subtable"
                         style="
@@ -176,13 +145,13 @@
                         "
                       >
                         <Chip
-                          label="Orders for {{ slotProps.data.name }}"
-                          v-text="slotProps.data.name"
+                          v-text="slotProps.data.tgl"
                           class="pb-1 text-green"
                           style="font-size: 12pt; background-color: azure"
                         />
+                        
                         <div class="row mb-3">
-                          <div class="col-md-4 pt-3">
+                          <div class="col-2 col-md-6 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -197,13 +166,13 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Keuntungan Bersih
+                                  PENDAPATAN
                                 </div>
-                                <div class="h1 mb-3">asd</div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.penjualanPasir)}}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 pt-3">
+                          <div class="col-2 col-md-6 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -218,13 +187,13 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Penjualan Pasir
+                                  PENDAPATAN BERSIH
                                 </div>
-                                <div class="h1 mb-3">43</div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.pendapatanBersih) }}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 pt-3">
+                          <div class="col-2 col-md-3 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -239,13 +208,13 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Biaya Pengeluaran
+                                  PENJUALAN PASIR
                                 </div>
-                                <div class="h1 mb-3">asd</div>
+                                <div class="h1 mb-3">{{ slotProps.data.jumlahPenjualanPasir }}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3 pt-3">
+                          <div class="col-2 col-md-3 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -260,13 +229,15 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Keuntungan Bersih
+                                  BON
                                 </div>
-                                <div class="h1 mb-3">43</div>
+                                <div class="h1 mb-3">{{ slotProps.data.jumlahBonTruk }}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3 pt-3">
+                          
+
+                          <div class="col-2 col-md-3 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -281,13 +252,13 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Penjualan Pasir
+                                  UPAH PEGAWAI
                                 </div>
-                                <div class="h1 mb-3">43</div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.upahPegawai) }}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3 pt-3">
+                          <div class="col-2 col-md-3 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -302,13 +273,13 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Biaya Pengeluaran
+                                  UPAH KASIR
                                 </div>
-                                <div class="h1 mb-3">43</div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.upahKasir ) }}</div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-3 pt-3">
+                          <div class="col-2 col-md-3 pt-3">
                             <div class="card">
                               <div class="card-body p-2 text-center">
                                 <div class="text-end text-green">
@@ -323,12 +294,76 @@
                                   </span>
                                 </div>
                                 <div class="text-muted m-0">
-                                  Biaya Pengeluaran
+                                  BON TRUK
                                 </div>
-                                <div class="h1 mb-3">43</div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.bonTruk )}}</div>
                               </div>
                             </div>
                           </div>
+                          <div class="col-2 col-md-3 pt-3">
+                            <div class="card">
+                              <div class="card-body p-2 text-center">
+                                <div class="text-end text-green">
+                                  <span
+                                    class="
+                                      text-green
+                                      d-inline-flex
+                                      align-items-center
+                                      lh-1
+                                    "
+                                  >
+                                  </span>
+                                </div>
+                                <div class="text-muted m-0">
+                                  PENGELUARAN TAMBANG
+                                </div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.pengeluaranTambang) }}</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-2 col-md-3 pt-3">
+                            <div class="card">
+                              <div class="card-body p-2 text-center">
+                                <div class="text-end text-green">
+                                  <span
+                                    class="
+                                      text-green
+                                      d-inline-flex
+                                      align-items-center
+                                      lh-1
+                                    "
+                                  >
+                                  </span>
+                                </div>
+                                <div class="text-muted m-0">
+                                  PENARIKAN DEPOSIT PEGAWAI
+                                </div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.depositPegawai )}}</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-2 col-md-3 pt-3">
+                            <div class="card">
+                              <div class="card-body p-2 text-center">
+                                <div class="text-end text-green">
+                                  <span
+                                    class="
+                                      text-green
+                                      d-inline-flex
+                                      align-items-center
+                                      lh-1
+                                    "
+                                  >
+                                  </span>
+                                </div>
+                                <div class="text-muted m-0">
+                                  PENARIKAN DEPOSIT KASIR
+                                </div>
+                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.depositKasir )}}</div>
+                              </div>
+                            </div>
+                          </div>
+                          
                         </div>
                         <DataTable
                           :resizableColumns="true"
@@ -338,7 +373,7 @@
                           selectionMode="multiple"
                           :metaKeySelection="false"
                           ref="dtExpand"
-                          :value="slotProps.data.find"
+                          :value="slotProps.data.transaksi"
                           dataKey="id"
                           :paginator="true"
                           :rows="10"
@@ -356,58 +391,140 @@
                             <div class="text-center">Load data . . .</div>
                           </template>
                           <Column
-                            field="id"
-                            header="ID"
+                            field="no_transaksi"
+                            header="No Transaksi"
                             :sortable="true"
                             style="width: 6rem"
                           ></Column>
                           <Column
-                            field="name"
-                            header="Nama"
+                            field="tgl_transaksi"
+                            header="Tgl Transaksi"
                             :sortable="true"
                           ></Column>
                           <Column
-                            field="no_hp"
-                            header="No. HP"
+                            header="Jenis Transaksi"
+                            field="jenis_transaksi"
                             :sortable="true"
-                          ></Column>
-                          <Column
-                            field="alamat"
-                            header="Alamat"
-                            :sortable="true"
-                          ></Column>
-
-                          <Column
-                            class=""
-                            :resizableColumns="false"
-                            :exportable="false"
-                            style="width: 3.5rem"
                           >
                             <template #body="slotProps">
-                              <div class="d-flex justify-content-end">
-                                <Button
-                                  icon="pi pi-pencil"
-                                  class="
-                                    p-button-rounded
-                                    p-button-outlined
-                                    p-button-success
-                                    p-mr-4
-                                  "
-                                  style="margin-right: 1rem"
-                                  @click="editProductExpand(slotProps.data)"
-                                />
-                                <Button
-                                  icon="pi pi-trash"
-                                  class="
-                                    p-button-rounded
-                                    p-button-outlined
-                                    p-button-danger
-                                  "
-                                  @click="deleteProduct(slotProps.data, $event)"
-                                />
-                              </div>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi ===
+                                  'Pembelian pasir'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="success"
+                                class=""
+                                ></Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi ===
+                                  'Pengeluaran tambang'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="info"
+                                class=""
+                                ></Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi ===
+                                  'Penarikan deposit pegawai'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="warning"
+                                class=""
+                                >}</Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi ===
+                                  'Pembayaran bon pegawai'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="danger"
+                                class=""
+                                ></Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi ===
+                                  'Penarikan deposit Kasir'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                severity="danger"
+                                class=""
+                                ></Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi === 'Bon truk'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                class=""
+                                ></Badge>
+                              <Badge
+                                v-if="
+                                  slotProps.data.jenis_transaksi === 'Pembayaran Bon Truk'
+                                "
+                                v-bind:value="slotProps.data.jenis_transaksi"
+                                class=""
+                                ></Badge> </template
+                          ></Column>
+                          <Column
+                            field="kasir"
+                            header="Kasir"
+                            :sortable="true"
+                          ></Column>
+                          <Column
+                            field="pekerja"
+                            header="Pekerja"
+                            :sortable="true"
+                          ></Column>
+                          <Column
+                            field="satuan"
+                            header="Satuan"
+                            :sortable="true"
+                          ></Column>
+                          <Column
+                            field="qty"
+                            header="Jumlah"
+                            :sortable="true"
+                          ></Column>
+                          <Column field="Harga" header="Total" :sortable="true"
+                            ><template #body="slotProps" sortable>
+                              Rp {{ formatCurrency(slotProps.data.Harga) }}
+                            </template></Column
+                          >
+                          <Column
+                            field="upahPegawai"
+                            header="Upah Pegawai"
+                            :sortable="true"
+                            ><template #body="slotProps" sortable>
+                              Rp
+                              {{ formatCurrency(slotProps.data.upahPegawai) }}
                             </template>
                           </Column>
+                          <Column
+                            field="upahKasir"
+                            header="Upah Kasir"
+                            :sortable="true"
+                            ><template #body="slotProps" sortable>
+                              Rp {{ formatCurrency(slotProps.data.upahKasir) }}
+                            </template></Column
+                          >
+                          <Column
+                            field="pendapatanBersih"
+                            header="Pendapatan Bersih"
+                            :sortable="true"
+                            ><template #body="slotProps" sortable>
+                              Rp
+                              {{
+                                formatCurrency(slotProps.data.pendapatanBersih)
+                              }}
+                            </template></Column
+                          >
+                          <Column
+                            field="keterangan"
+                            header="Keterangan"
+                            :sortable="true"
+                          ></Column>
                         </DataTable>
                       </div>
                     </template>
@@ -448,15 +565,49 @@
                   >
                   <!-- Pembelian Pasir Start-->
                   <label
-                    for="nama "
+                    for="Transaksi "
                     class="mb-2"
                     v-if="product.jenisTransaksi == `Bon truk`"
+                    >Transaksi</label
+                  >
+                  <Dropdown
+                    id="Transaksi"
+                    v-model.trim="product.keterangan"
+                    v-if="product.jenisTransaksi == `Bon truk`"
+                    :options="Transaksi"
+                    optionLabel="name"
+                    optionValue="name"
+                    required="true"
+                    placeholder="Pilih jenis transaksi"
+                    :class="{
+                      'p-invalid': submitted && !product.keterangan,
+                    }"
+                  />
+                  <small
+                    class="p-error d-block"
+                    v-if="
+                      submitted &&
+                      !product.keterangan &&
+                      product.jenisTransaksi == `Bon truk`
+                    "
+                    >Nama is required.</small
+                  >
+                  <label
+                    for="nama "
+                    class="mb-2"
+                    v-if="
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Pembayaran`
+                    "
                     >Nama</label
                   >
                   <Dropdown
                     id="nama"
                     v-model.trim="product.name"
-                    v-if="product.jenisTransaksi == `Bon truk`"
+                    v-if="
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Pembayaran`
+                    "
                     :options="name"
                     optionLabel="name"
                     optionValue="name"
@@ -471,7 +622,44 @@
                     v-if="
                       submitted &&
                       !product.name &&
-                      product.jenisTransaksi == `Bon truk`
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Pembayaran`
+                    "
+                    >Nama is required.</small
+                  >
+                  <label
+                    for="nama "
+                    class="mb-2"
+                    v-if="
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Bon`
+                    "
+                    >Nama</label
+                  >
+                  <Dropdown
+                    id="nama"
+                    v-model.trim="product.name"
+                    v-if="
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Bon`
+                    "
+                    :options="name"
+                    optionLabel="name"
+                    optionValue="name"
+                    required="true"
+                    :editable="true"
+                    placeholder="Pilih jenis transaksi"
+                    :class="{
+                      'p-invalid': submitted && !product.name,
+                    }"
+                  />
+                  <small
+                    class="p-error d-block"
+                    v-if="
+                      submitted &&
+                      !product.name &&
+                      product.jenisTransaksi == `Bon truk` &&
+                      product.keterangan == `Bon`
                     "
                     >Nama is required.</small
                   >
@@ -480,7 +668,8 @@
                     class="mb-2"
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
-                      product.jenisTransaksi == `Bon truk`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`)
                     "
                     >Satuan</label
                   >
@@ -489,7 +678,8 @@
                     v-model.trim="product.satuan"
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
-                      product.jenisTransaksi == `Bon truk`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`)
                     "
                     :options="satuan"
                     optionLabel="jumlah"
@@ -506,7 +696,8 @@
                       submitted &&
                       !product.satuan &&
                       (product.jenisTransaksi == `Pembelian pasir` ||
-                        product.jenisTransaksi == `Bon truk`)
+                        (product.jenisTransaksi == `Bon truk` &&
+                          product.keterangan == `Bon`))
                     "
                     >Satuan is required.</small
                   >
@@ -515,17 +706,19 @@
                     class="mb-2"
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
-                      product.jenisTransaksi == `Bon truk`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`)
                     "
                     >Jumlah</label
                   >
-                  <InputText
+                  <InputNumber
                     id="jumlah"
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
-                      product.jenisTransaksi == `Bon truk`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`)
                     "
-                    v-model.trim="product.qty"
+                    v-model="product.qty"
                     required="true"
                     placeholder="Masukkan Jumlah"
                     :class="{ 'p-invalid': submitted && !product.qty }"
@@ -536,7 +729,8 @@
                       submitted &&
                       !product.qty &&
                       (product.jenisTransaksi == `Pembelian pasir` ||
-                        product.jenisTransaksi == `Bon truk`)
+                        (product.jenisTransaksi == `Bon truk` &&
+                          product.keterangan == `Bon`))
                     "
                     >Jumlah is required.</small
                   >
@@ -546,8 +740,9 @@
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
-                      product.jenisTransaksi == `Bon truk` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`) ||
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     >pegawai</label
                   >
@@ -556,8 +751,9 @@
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
-                      product.jenisTransaksi == `Bon truk` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        product.keterangan == `Bon`) ||
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     v-model="product.pegawai"
                     :options="pegawai"
@@ -577,8 +773,9 @@
                       !product.pegawai &&
                       (product.jenisTransaksi == `Pembelian pasir` ||
                         product.jenisTransaksi == `Penarikan deposit pegawai` ||
-                        product.jenisTransaksi == `Bon truk` ||
-                        product.jenisTransaksi == `Bon pegawai`)
+                        (product.jenisTransaksi == `Bon truk` &&
+                          product.keterangan == `Bon`) ||
+                        product.jenisTransaksi == `Pembayaran bon pegawai`)
                     "
                     >pegawai is required.</small
                   >
@@ -590,8 +787,10 @@
                       product.jenisTransaksi == `Pengeluaran tambang` ||
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
                       product.jenisTransaksi == `Penarikan deposit kasir` ||
-                      product.jenisTransaksi == `Bon truk` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        (product.keterangan == `Bon` ||
+                          product.keterangan == `Pembayaran`)) ||
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     >kasir</label
                   >
@@ -602,8 +801,10 @@
                       product.jenisTransaksi == `Pengeluaran tambang` ||
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
                       product.jenisTransaksi == `Penarikan deposit kasir` ||
-                      product.jenisTransaksi == `Bon truk` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      (product.jenisTransaksi == `Bon truk` &&
+                        (product.keterangan == `Bon` ||
+                          product.keterangan == `Pembayaran`)) ||
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     v-model.trim="product.kasir"
                     :options="kasir"
@@ -624,8 +825,10 @@
                         product.jenisTransaksi == `Pengeluaran tambang` ||
                         product.jenisTransaksi == `Penarikan deposit pegawai` ||
                         product.jenisTransaksi == `Penarikan deposit kasir` ||
-                        product.jenisTransaksi == `Bon truk` ||
-                        product.jenisTransaksi == `Bon pegawai`)
+                        (product.jenisTransaksi == `Bon truk` &&
+                          (product.keterangan == `Bon` ||
+                            product.keterangan == `Pembayaran`)) ||
+                        product.jenisTransaksi == `Pembayaran bon pegawai`)
                     "
                     >kasir is required.</small
                   >
@@ -662,20 +865,22 @@
                     v-if="
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
                       product.jenisTransaksi == `Penarikan deposit kasir` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     >Total Penarikan</label
                   >
-                  <InputText
+                  <InputNumber
                     id="Total Penarikan"
                     v-if="
                       product.jenisTransaksi == `Penarikan deposit pegawai` ||
                       product.jenisTransaksi == `Penarikan deposit kasir` ||
-                      product.jenisTransaksi == `Bon pegawai`
+                      product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
-                    v-model.trim="product.harga"
+                    v-model="product.harga"
+                    
+                    
                     required="true"
-                    placeholder="Masukkan Total Penarikan"
+                    placeholder="Masukkan Total Penarikann"
                     :class="{ 'p-invalid': submitted && !product.harga }"
                   />
                   <small
@@ -685,7 +890,7 @@
                       !product.harga &&
                       (product.jenisTransaksi == `Penarikan deposit pegawai` ||
                         product.jenisTransaksi == `Penarikan deposit kasir` ||
-                        product.jenisTransaksi == `Bon pegawai`)
+                        product.jenisTransaksi == `Pembayaran bon pegawai`)
                     "
                     >Total Penarikan is required.</small
                   >
@@ -695,10 +900,10 @@
                     v-if="product.jenisTransaksi == `Pengeluaran tambang`"
                     >Harga</label
                   >
-                  <InputText
+                  <InputNumber
                     id="Harga"
                     v-if="product.jenisTransaksi == `Pengeluaran tambang`"
-                    v-model.trim="product.harga"
+                    v-model="product.harga"
                     required="true"
                     placeholder="Masukkan Harga"
                     :class="{ 'p-invalid': submitted && !product.harga }"
@@ -711,6 +916,28 @@
                       product.jenisTransaksi == `Pengeluaran tambang`
                     "
                     >Harga is required.</small
+                  >
+                  <label
+                    for="JumlahPembayaran"
+                    class="mb-2"
+                    v-if="product.keterangan == `Pembayaran`"
+                    >Jumlah Pembayaran</label
+                  >
+                  <InputNumber
+                    id="JumlahPembayaran"
+                    v-if="product.keterangan == `Pembayaran`"
+                    v-model="product.harga"
+                    placeholder="Masukkan Jumlah Pembayarann"
+                    :class="{ 'p-invalid': submitted && !product.harga }"
+                  />
+                  <small
+                    class="p-error d-block"
+                    v-if="
+                      submitted &&
+                      !product.harga &&
+                      product.keterangan == `Pembayaran`
+                    "
+                    >Jumlah Pembayaran is required.</small
                   >
 
                   <!-- Pembelian Pasir END -->
@@ -945,30 +1172,14 @@ export default defineComponent({
   setup() {
     onMounted(async () => {
       await ApiPegawai.value
-        .getPegawai()
+        .getPencatatan()
         .then(async (res) => {
-          products.value = res.data;
+          console.log("bug");
+          products.value = res.data.data;
           loading1.value = false;
-          await ApiPegawai.value
-            .getResourcesForm()
-            .then((res) => {
-              satuan.value = res.data.hargaPasir;
-              pegawai.value = res.data.daftarPegawai;
-              kasir.value = res.data.daftarKasir;
-              name.value = res.data.bonTrukNama;
-            })
-            .catch((err) => {
-              add.value = true;
-              Swal.fire({
-                position: "center",
-                icon: "error",
-                title: err,
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            });
         })
         .catch((err) => {
+          console.log("error")
           loading1.value = false;
           Swal.fire({
             position: "center",
@@ -994,10 +1205,11 @@ export default defineComponent({
       { name: "Pembelian pasir" },
       { name: "Pengeluaran tambang" },
       { name: "Penarikan deposit pegawai" },
+      // { name: "Pembayaran bon pegawai" },
       { name: "Penarikan deposit kasir" },
       { name: "Bon truk" },
-      { name: "Bon pegawai" },
     ]);
+    const Transaksi = ref([{ name: "Bon" }, { name: "Pembayaran" }]);
     const ApiPegawai = ref(new apiPegawai());
     const position = ref("center");
     const satuan = ref([]);
@@ -1009,7 +1221,7 @@ export default defineComponent({
     const loading1 = ref(true);
     const selectedData = ref();
     const router = useRouter();
-    const items = ref([{ label: "Daftar Pegawai", to: "/daftarPegawai" }]);
+    const items = ref([{ label: "Pencatatan", to: "/pencatatan" }]);
     const confirm = useConfirm();
     const toast = useToast();
     const dt = ref([]);
@@ -1065,7 +1277,7 @@ export default defineComponent({
       });
     };
     const formatCurrency = (value) => {
-      return value.toLocaleString("en-US", {
+      return value.toLocaleString({
         style: "currency",
         currency: "USD",
       });
@@ -1085,9 +1297,26 @@ export default defineComponent({
     };
     const openNew = async () => {
       product.value = {};
+      await ApiPegawai.value
+        .getResourcesForm()
+        .then((res) => {
+          satuan.value = res.data.hargaPasir;
+          pegawai.value = res.data.daftarPegawai;
+          kasir.value = res.data.daftarKasir;
+          name.value = res.data.bonTrukNama;
+        })
+        .catch((err) => {
+          add.value = true;
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: err,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       // submitted.value = false;
       add.value = true;
-      
     };
     const hideDialog = () => {
       add.value = false;
@@ -1133,7 +1362,7 @@ export default defineComponent({
           );
           product.value.harga =
             parseInt(result.harga) * parseInt(product.value.qty);
-          addDataComfrim.value = true;
+          sendTransaction();
         }
       } else if (product.value.jenisTransaksi == "Pengeluaran tambang") {
         if (
@@ -1141,7 +1370,7 @@ export default defineComponent({
           product.value.keterangan &&
           product.value.harga
         ) {
-          addDataComfrim.value = true;
+          sendTransaction();
         }
         // console.log("Pengeluaran tambang");
       } else if (product.value.jenisTransaksi == "Penarikan deposit pegawai") {
@@ -1150,58 +1379,117 @@ export default defineComponent({
           product.value.kasir &&
           product.value.harga
         ) {
-          addDataComfrim.value = true;
+          sendTransaction();
         }
       } else if (product.value.jenisTransaksi == "Penarikan deposit kasir") {
         if (product.value.kasir && product.value.harga) {
-          addDataComfrim.value = true;
+          sendTransaction();
         }
         // console.log("Penarikan deposit kasir");
       } else if (product.value.jenisTransaksi == "Bon truk") {
-        if (
-          product.value.satuan &&
-          product.value.qty &&
-          product.value.pegawai &&
-          product.value.kasir
-        ) {
-          const result = await satuan.value.find(
-            ({ jumlah }) => jumlah === product.value.satuan
-          );
-          product.value.harga =
-            parseInt(result.harga) * parseInt(product.value.qty);
-          addDataComfrim.value = true;
+        if (product.value.keterangan == "Bon") {
+          if (
+            product.value.satuan &&
+            product.value.qty &&
+            product.value.pegawai &&
+            product.value.kasir
+          ) {
+            console.log("Bon");
+            const result = await satuan.value.find(
+              ({ jumlah }) => jumlah === product.value.satuan
+            );
+            product.value.harga =
+              parseInt(result.harga) * parseInt(product.value.qty);
+            // addDataComfrim.value = true;
+            sendTransaction();
+          }
+        } else {
+          if (product.value.harga) {
+            // addDataComfrim.value = true;
+
+            sendTransaction();
+            console.log(product.value);
+          }
         }
         // console.log("Bon truk");
-      } else if (product.value.jenisTransaksi == "Bon pegawai") {
+      } else if (product.value.jenisTransaksi == "Pembayaran bon pegawai") {
         if (
           product.value.pegawai &&
           product.value.kasir &&
           product.value.harga
         ) {
-          addDataComfrim.value = true;
+          sendTransaction();
         }
-        // console.log("Bon pegawai");
+        // console.log("Pembayaran bon pegawai");
       }
     };
     const sendTransaction = async () => {
-      add.value = false;
-      addDataComfrim.value = false;
-      await ApiPegawai.value
-        .addPencatatan(product.value)
-        .then((result) => {
-          console.log("Good");
-          console.log(product.value);
-          toast.add({
-            severity: "success",
-            summary: "Berhasil menambah data",
-            detail: `Transaksi No.${product.value.transactionNumber}`,
-            life: 3000,
-          });
-        })
-        .catch((err) => {
-          console.log("Bad");
-        });
-      product.value = {};
+      Swal.fire({
+        title: `Total Transaksi<br>Rp ${product.value.harga}`,
+        text: ``,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          add.value = false;
+          submitted.value = false;
+          addDataComfrim.value = false;
+          await ApiPegawai.value
+            .addPencatatan(product.value)
+            .then(async (result) => {
+              console.log("Good");
+              console.log(product.value);
+              toast.add({
+                severity: "success",
+                summary: "Berhasil menambah data",
+                detail: `Transaksi No.${product.value.transactionNumber}`,
+                life: 3000,
+              });
+              await ApiPegawai.value
+                .getPencatatan()
+                .then(async (res) => {
+                  products.value = res.data.data;
+                  loading1.value = false;
+                  await ApiPegawai.value
+                    .getResourcesForm()
+                    .then((res) => {
+                      satuan.value = res.data.hargaPasir;
+                      pegawai.value = res.data.daftarPegawai;
+                      kasir.value = res.data.daftarKasir;
+                      name.value = res.data.bonTrukNama;
+                    })
+                    .catch((err) => {
+                      add.value = true;
+                      Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: err,
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                    });
+                })
+                .catch((err) => {
+                  loading1.value = false;
+                  Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: err,
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                });
+            })
+            .catch((err) => {
+              console.log("Bad");
+            });
+          product.value = {};
+          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
+      });
     };
     const saveProduct = async () => {
       submitted.value = true;
@@ -1453,6 +1741,7 @@ export default defineComponent({
       }
     };
     return {
+      Transaksi,
       name,
       hideComfirmed,
       sendTransaction,
@@ -1511,6 +1800,15 @@ export default defineComponent({
       date2,
       date3,
     };
+  },
+  computed: {
+    jumlahPembayaran: function () {
+      return (
+        parseInt(
+          this.satuan.find(({ jumlah }) => jumlah === this.product.satuan)
+        ) * parseInt(this.product.qty)
+      );
+    },
   },
   components: {
     "header-component": header,

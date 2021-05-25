@@ -77,7 +77,7 @@
                     :loading="loading1"
                     :globalFilterFields="['id', 'name','no_hp','alamat']"
                   >
-                    <template #footer>
+                    <!-- <template #footer>
                       <div class="d-flex justify-content-end">
                         <Button
                           label="Unduh"
@@ -86,19 +86,14 @@
                           @click="exportCSV($event)"
                         />
                       </div>
-                    </template>
+                    </template> -->
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
                     <template #loading>
                       <div class="text-center">Load data . . .</div>
                     </template> 
-                    <Column
-                      field="id"
-                      header="ID"
-                      :sortable="true"
-                      style="width: 6rem"
-                    ></Column>
+                    
                     <Column
                       field="name"
                       header="Nama"
@@ -192,6 +187,7 @@
                   <Button
                     label="Save"
                     icon="pi pi-check"
+                    :loading="loadingbutton"
                     class="p-button-text"
                     @click="saveProduct"
                   />

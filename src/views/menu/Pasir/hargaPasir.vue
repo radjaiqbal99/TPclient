@@ -88,7 +88,7 @@
                         </span>
                       </div>
                     </template> -->
-                    <template #footer>
+                    <!-- <template #footer>
                       <div class="d-flex justify-content-end">
                         <Button
                           label="Unduh"
@@ -97,7 +97,7 @@
                           @click="exportCSV($event)"
                         />
                       </div>
-                    </template>
+                    </template> -->
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
@@ -120,7 +120,10 @@
                       field="harga"
                       header="Harga"
                       :sortable="true"
-                    ></Column>
+                    >
+                    <template #body="slotProps" sortable>
+                        Rp {{ formatCurrency(slotProps.data.harga) }}
+                      </template></Column>
                     <Column
                       class=""
                       :resizableColumns="false"
@@ -170,9 +173,9 @@
                     >Jumlah is required.</small
                   >
                   <label for="harga" class="mb-2 mt-2">Harga</label>
-                  <InputText
+                  <InputNumber
                     id="harga"
-                    v-model.trim="product.harga"
+                    v-model="product.harga"
                     required="false"
                     placeholder="Masukkan Harga"
                     autofocus
@@ -214,7 +217,7 @@
                     v-model.trim="product.jumlah"
                     required="true"
                     placeholder="Masukkan Jumlah"
-                    autofocus
+                    disabled
                     :class="{ 'p-invalid': submitted && !product.jumlah }"
                   />
                   <small
@@ -223,9 +226,9 @@
                     >Jumlah is required.</small
                   >
                   <label for="harga" class="mb-2 mt-2">Harga</label>
-                  <InputText
+                  <InputNumber
                     id="harga"
-                    v-model.trim="product.harga"
+                    v-model="product.harga"
                     required="false"
                     placeholder="Masukkan Harga"
                     autofocus
@@ -339,7 +342,7 @@ export default defineComponent({
     const loading1 = ref(true);
     const selectedData = ref();
     const router = useRouter();
-    const items = ref([{ label: "Daftar Kasir", to: "/daftarKasir" }]);
+    const items = ref([{ label: "Harga Pasir", to: "/hargaPasir" }]);
     const confirm = useConfirm();
     const toast = useToast();
     const dt = ref();
@@ -375,7 +378,7 @@ export default defineComponent({
 
     const formatCurrency = (value) => {
       if (value)
-        return value.toLocaleString("en-US", {
+        return value.toLocaleString({
           style: "currency",
           currency: "USD",
         });

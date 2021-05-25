@@ -2,8 +2,12 @@ import {
     createApp
 } from 'vue'
 import ConfirmationService from 'primevue/confirmationservice'
+import InputNumber from 'primevue/inputnumber';
 import ConfirmPopup from 'primevue/confirmpopup'
+import RadioButton from 'primevue/radiobutton';
+import Chip from 'primevue/chip';
 import router from './router'
+import MultiSelect from 'primevue/multiselect'
 import Password from 'primevue/password'
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
@@ -20,11 +24,13 @@ import PrimeVue from 'primevue/config';
 import Breadcrumb from 'primevue/breadcrumb';
 import InputMask from 'primevue/inputmask';
 import Dialog from 'primevue/dialog';
+import Badge from 'primevue/badge';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
+import VueApexCharts from 'vue3-apexcharts'
 
 import 'sweetalert2/dist/sweetalert2.min.css';
 import '@tabler/core/dist/css/tabler-vendors.min.css'
@@ -41,10 +47,16 @@ app.use(VueSweetalert2);
 app.use(ConfirmationService)
 app.use(ToastService)
 app.use(router)
+app.use(VueApexCharts)
 app.use(PrimeVue, {
     ripple: true
 })
 app.component('Toast', Toast)
+app.component('Badge', Badge)
+app.component('InputNumber', InputNumber)
+app.component('RadioButton', RadioButton)
+app.component('Chip', Chip)
+app.component('MultiSelect', MultiSelect)
 app.component('TabView', TabView)
 app.component('TabPanel', TabPanel)
 app.component('InputMask', InputMask)

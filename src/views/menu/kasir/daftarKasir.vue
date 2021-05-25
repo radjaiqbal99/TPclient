@@ -88,7 +88,7 @@
                         </span>
                       </div>
                     </template> -->
-                    <template #footer>
+                    <!-- <template #footer>
                       <div class="d-flex justify-content-end">
                         <Button
                           label="Unduh"
@@ -97,7 +97,7 @@
                           @click="exportCSV($event)"
                         />
                       </div>
-                    </template>
+                    </template> -->
                     <template #empty>
                       <div class="text-center">No data found</div></template
                     >
