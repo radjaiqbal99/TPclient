@@ -6,7 +6,7 @@ import InputNumber from 'primevue/inputnumber';
 import ConfirmPopup from 'primevue/confirmpopup'
 import RadioButton from 'primevue/radiobutton';
 import Chip from 'primevue/chip';
-import router from './router'
+import router from './router/index.js'
 import MultiSelect from 'primevue/multiselect'
 import Password from 'primevue/password'
 import ToastService from 'primevue/toastservice'
@@ -32,14 +32,20 @@ import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueApexCharts from 'vue3-apexcharts'
 
-import 'sweetalert2/dist/sweetalert2.min.css';
-import '@tabler/core/dist/css/tabler-vendors.min.css'
-import '@tabler/core/dist/css/tabler.min.css'
 
+// import 'sweetalert2/dist/sweetalert2.min.css';
+// import '@tabler/core/dist/css/tabler.min.css'
+// import './split.js'
+// import 'primevue/resources/themes/saga-blue/theme.css' //theme
+// import 'primevue/resources/primevue.min.css' //core css
+// import 'primeicons/primeicons.css' //icons
+// import '@tabler/core/dist/js/tabler.min.js'
+import 'sweetalert2/dist/sweetalert2.min.css';
+import '@tabler/core/dist/css/tabler.min.css'
 import 'primevue/resources/themes/saga-blue/theme.css' //theme
 import 'primevue/resources/primevue.min.css' //core css
 import 'primeicons/primeicons.css' //icons
-import '@tabler/core/dist/js/tabler.js'
+import '@tabler/core/dist/js/tabler.min.js'
 
 
 const app = createApp(App)

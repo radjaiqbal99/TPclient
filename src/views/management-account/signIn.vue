@@ -35,7 +35,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Username"
-                  autocomplete="off"
+                  
                 />
               </div>
               <div
@@ -54,7 +54,7 @@
                 placeholder="Password"
                 toggleMask
                 :feedback="false"
-                  autocomplete="off"
+                  
               ></Password>
                 <!-- <input
                   v-model="loginData.password"

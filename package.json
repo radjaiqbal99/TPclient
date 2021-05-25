@@ -10,14 +10,11 @@
     "@popperjs/core": "^2.9.2",
     "@revolist/vue3-datagrid": "^3.0.52",
     "@tabler/core": "^1.0.0-beta2",
-    "@types/jquery": "^3.5.5",
     "apexcharts": "^3.26.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta3",
     "chart.js": "^3.3.0",
-    "cors": "^2.8.5",
     "jquery": "^3.6.0",
-    "node-sass": "^5.0.0",
     "primeicons": "^4.1.0",
     "primevue": "^3.3.5",
     "vue": "^3.0.5",
@@ -30,6 +27,8 @@
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.5",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "vite": "^2.1.5"
+    "vite": "^2.1.5",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
   }
 }
