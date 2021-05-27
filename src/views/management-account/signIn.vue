@@ -1,14 +1,15 @@
 <template>
-  <body class="antialiased border-top-wide  d-flex flex-column">
+  <body class="antialiased border-top-wide  d-flex flex-column bg-azure ">
     <div class="page page-center ">
-      <div class="container-tight py-4 " >
+      <div class="container-tight" >
         <form
-          class="card card-md "
+          class="card card-md rounded-3 p-3"
+          
           @submit.prevent="postLoginData()"
           autocomplete="off"
         >
           <div class="card-body">
-            <h2 class="card-title text-center mb-4">LOGIN</h2>
+            <h2 class="card-title text-center mb-3" style="font-size:20pt">LOGIN</h2>
             <div
               v-if="validation.message"
               class="alert alert-important alert-danger alert-dismissible"
@@ -27,9 +28,8 @@
                 aria-label="close"
               ></a>
             </div>
-            <div class="mb-3">
               <label class="form-label"> Username </label>
-              <div class="input-group input-group-flat">
+              <div class="input-group input-group-flat mb-3">
                 <input
                   v-model="loginData.username"
                   type="text"
@@ -45,18 +45,19 @@
               >
                 {{ validation.username[0] }}
               </div>
-            </div>
-            <div class="mb-2 ">
+            
               <label class="form-label"> Password </label>
               <!-- <div class="input-group input-group-flat"> -->
+              <div class="input-group input-group-flat">
               <Password
+              class="input-group input-group-flat"
                 v-model="loginData.password"
                 placeholder="Password"
-                style=""
                 toggleMask
                 :feedback="false"
                   
               ></Password>
+              </div>
                 <!-- <input
                   v-model="loginData.password"
                   type="password"
@@ -71,7 +72,6 @@
               >
                 {{ validation.password[0] }}
               </div>
-            </div>
             <div class="form-footer mb-2">
               <button type="submit" class="btn btn-primary w-100">
                 Sign in
@@ -137,11 +137,5 @@ export default {
   },
 };
 </script>
-<style  scoped>
-::v-deep(.p-password input) {
-    width: 100%;
-    margin-right: 200px;
-}
-</style>
 
 
