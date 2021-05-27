@@ -526,7 +526,7 @@ export default defineComponent({
     };
     const deleteProduct = (prod, event) => {
       product.value = prod;
-      console.log(product.value);
+      // console.log(product.value);
       confirm.require({
         target: event.currentTarget,
         message: `Kamu akan mengahpus id ( ${product.value.id} )`,
@@ -567,7 +567,7 @@ export default defineComponent({
                 life: 3000,
               });
               product.value = {};
-              console.log(product.value.id);
+              // console.log(product.value.id);
             });
         },
         reject: () => {},
@@ -595,7 +595,7 @@ export default defineComponent({
         (val) => !selectedProducts.value.includes(val)
       );
 
-      console.log(selectedProducts.value);
+      // console.log(selectedProducts.value);
       deleteProductsDialog.value = false;
       selectedProducts.value = null;
       toast.add({

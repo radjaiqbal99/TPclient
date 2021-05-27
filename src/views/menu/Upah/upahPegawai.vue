@@ -408,7 +408,7 @@ export default defineComponent({
     const saveProduct = async () => {
       submitted.value = true;
       loadingbutton.value = true;
-      console.log("here");
+      // console.log("here");
       if (product.value.satuan.trim()) {
         if (product.value.id) {
           await ApiPegawai.value
@@ -500,7 +500,7 @@ export default defineComponent({
     };
     const deleteProduct = (prod, event) => {
       product.value = prod;
-      console.log(product.value);
+      // console.log(product.value);
       confirm.require({
         target: event.currentTarget,
         message: `Kamu akan mengahpus ( ${product.value.satuan} )`,
@@ -542,7 +542,7 @@ export default defineComponent({
                 life: 3000,
               });
               product.value = {};
-              console.log(product.value.id);
+              // console.log(product.value.id);
             });
         },
         reject: () => {},
@@ -570,7 +570,7 @@ export default defineComponent({
         (val) => !selectedProducts.value.includes(val)
       );
 
-      console.log(selectedProducts.value);
+      // console.log(selectedProducts.value);
       deleteProductsDialog.value = false;
       selectedProducts.value = null;
       toast.add({

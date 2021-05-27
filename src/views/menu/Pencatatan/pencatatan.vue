@@ -149,7 +149,7 @@
                           class="pb-1 text-green"
                           style="font-size: 12pt; background-color: azure"
                         />
-                        
+
                         <div class="row mb-3">
                           <div class="col-2 col-md-6 pt-3">
                             <div class="card">
@@ -165,10 +165,15 @@
                                   >
                                   </span>
                                 </div>
-                                <div class="text-muted m-0">
-                                  PENDAPATAN
+                                <div class="text-muted m-0">PENDAPATAN</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(
+                                      slotProps.data.penjualanPasir
+                                    )
+                                  }}
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.penjualanPasir)}}</div>
                               </div>
                             </div>
                           </div>
@@ -189,7 +194,14 @@
                                 <div class="text-muted m-0">
                                   PENDAPATAN BERSIH
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.pendapatanBersih) }}</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(
+                                      slotProps.data.pendapatanBersih
+                                    )
+                                  }}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -210,7 +222,9 @@
                                 <div class="text-muted m-0">
                                   PENJUALAN PASIR
                                 </div>
-                                <div class="h1 mb-3">{{ slotProps.data.jumlahPenjualanPasir }}</div>
+                                <div class="h1 mb-3">
+                                  {{ slotProps.data.jumlahPenjualanPasir }}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -228,14 +242,13 @@
                                   >
                                   </span>
                                 </div>
-                                <div class="text-muted m-0">
-                                  BON
+                                <div class="text-muted m-0">BON</div>
+                                <div class="h1 mb-3">
+                                  {{ slotProps.data.jumlahBonTruk }}
                                 </div>
-                                <div class="h1 mb-3">{{ slotProps.data.jumlahBonTruk }}</div>
                               </div>
                             </div>
                           </div>
-                          
 
                           <div class="col-2 col-md-3 pt-3">
                             <div class="card">
@@ -251,10 +264,13 @@
                                   >
                                   </span>
                                 </div>
-                                <div class="text-muted m-0">
-                                  UPAH PEGAWAI
+                                <div class="text-muted m-0">UPAH PEGAWAI</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(slotProps.data.upahPegawai)
+                                  }}
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.upahPegawai) }}</div>
                               </div>
                             </div>
                           </div>
@@ -272,10 +288,11 @@
                                   >
                                   </span>
                                 </div>
-                                <div class="text-muted m-0">
-                                  UPAH KASIR
+                                <div class="text-muted m-0">UPAH KASIR</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{ formatCurrency(slotProps.data.upahKasir) }}
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.upahKasir ) }}</div>
                               </div>
                             </div>
                           </div>
@@ -293,10 +310,11 @@
                                   >
                                   </span>
                                 </div>
-                                <div class="text-muted m-0">
-                                  BON TRUK
+                                <div class="text-muted m-0">BON TRUK</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{ formatCurrency(slotProps.data.bonTruk) }}
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency( slotProps.data.bonTruk )}}</div>
                               </div>
                             </div>
                           </div>
@@ -317,7 +335,14 @@
                                 <div class="text-muted m-0">
                                   PENGELUARAN TAMBANG
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.pengeluaranTambang) }}</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(
+                                      slotProps.data.pengeluaranTambang
+                                    )
+                                  }}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -338,7 +363,14 @@
                                 <div class="text-muted m-0">
                                   PENARIKAN DEPOSIT PEGAWAI
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.depositPegawai )}}</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(
+                                      slotProps.data.depositPegawai
+                                    )
+                                  }}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -359,11 +391,15 @@
                                 <div class="text-muted m-0">
                                   PENARIKAN DEPOSIT KASIR
                                 </div>
-                                <div class="h1 mb-3">Rp {{ formatCurrency(  slotProps.data.depositKasir )}}</div>
+                                <div class="h1 mb-3">
+                                  Rp
+                                  {{
+                                    formatCurrency(slotProps.data.depositKasir)
+                                  }}
+                                </div>
                               </div>
                             </div>
                           </div>
-                          
                         </div>
                         <DataTable
                           :resizableColumns="true"
@@ -415,7 +451,7 @@
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 severity="success"
                                 class=""
-                                ></Badge>
+                              ></Badge>
                               <Badge
                                 v-if="
                                   slotProps.data.jenis_transaksi ===
@@ -424,7 +460,7 @@
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 severity="info"
                                 class=""
-                                ></Badge>
+                              ></Badge>
                               <Badge
                                 v-if="
                                   slotProps.data.jenis_transaksi ===
@@ -433,7 +469,8 @@
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 severity="warning"
                                 class=""
-                                >}</Badge>
+                                >}</Badge
+                              >
                               <Badge
                                 v-if="
                                   slotProps.data.jenis_transaksi ===
@@ -442,7 +479,7 @@
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 severity="danger"
                                 class=""
-                                ></Badge>
+                              ></Badge>
                               <Badge
                                 v-if="
                                   slotProps.data.jenis_transaksi ===
@@ -451,21 +488,22 @@
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 severity="danger"
                                 class=""
-                                ></Badge>
+                              ></Badge>
                               <Badge
                                 v-if="
                                   slotProps.data.jenis_transaksi === 'Bon truk'
                                 "
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 class=""
-                                ></Badge>
+                              ></Badge>
                               <Badge
                                 v-if="
-                                  slotProps.data.jenis_transaksi === 'Pembayaran Bon Truk'
+                                  slotProps.data.jenis_transaksi ===
+                                  'Pembayaran Bon Truk'
                                 "
                                 v-bind:value="slotProps.data.jenis_transaksi"
                                 class=""
-                                ></Badge> </template
+                              ></Badge> </template
                           ></Column>
                           <Column
                             field="kasir"
@@ -525,6 +563,26 @@
                             header="Keterangan"
                             :sortable="true"
                           ></Column>
+                          <Column
+                            class=""
+                            :resizableColumns="false"
+                            :exportable="false"
+                            style="width: 3.5rem"
+                          >
+                            <template #body="slotProps">
+                              <div class="d-flex justify-content-end">
+                                <Button
+                                  icon="pi pi-trash"
+                                  class="
+                                    p-button-rounded
+                                    p-button-outlined
+                                    p-button-danger
+                                  "
+                                  @click="deleteProduct(slotProps.data, $event)"
+                                />
+                              </div>
+                            </template>
+                          </Column>
                         </DataTable>
                       </div>
                     </template>
@@ -877,8 +935,6 @@
                       product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
                     v-model="product.harga"
-                    
-                    
                     required="true"
                     placeholder="Masukkan Total Penarikann"
                     :class="{ 'p-invalid': submitted && !product.harga }"
@@ -1174,12 +1230,12 @@ export default defineComponent({
       await ApiPegawai.value
         .getPencatatan()
         .then(async (res) => {
-          console.log("bug");
+          // console.log("bug");
           products.value = res.data.data;
           loading1.value = false;
         })
         .catch((err) => {
-          console.log("error")
+          // console.log("error");
           loading1.value = false;
           Swal.fire({
             position: "center",
@@ -1395,7 +1451,7 @@ export default defineComponent({
             product.value.pegawai &&
             product.value.kasir
           ) {
-            console.log("Bon");
+            // console.log("Bon");
             const result = await satuan.value.find(
               ({ jumlah }) => jumlah === product.value.satuan
             );
@@ -1409,7 +1465,7 @@ export default defineComponent({
             // addDataComfrim.value = true;
 
             sendTransaction();
-            console.log(product.value);
+            // console.log(product.value);
           }
         }
         // console.log("Bon truk");
@@ -1426,7 +1482,7 @@ export default defineComponent({
     };
     const sendTransaction = async () => {
       Swal.fire({
-        title: `Total Transaksi<br>Rp ${product.value.harga}`,
+        title: `Total Transaksi<br>Rp ${formatCurrency(product.value.harga)}`,
         text: ``,
         icon: "warning",
         showCancelButton: true,
@@ -1441,8 +1497,8 @@ export default defineComponent({
           await ApiPegawai.value
             .addPencatatan(product.value)
             .then(async (result) => {
-              console.log("Good");
-              console.log(product.value);
+              // console.log("Good");
+              // console.log(product.value);
               toast.add({
                 severity: "success",
                 summary: "Berhasil menambah data",
@@ -1485,11 +1541,11 @@ export default defineComponent({
                 });
             })
             .catch((err) => {
-              console.log("Bad");
+              // console.log("Bad");
             });
           product.value = {};
           // Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        }else{
+        } else {
           add.value = true;
         }
       });
@@ -1643,7 +1699,7 @@ export default defineComponent({
     };
     const deleteProduct = (prod, event) => {
       product.value = prod;
-      console.log(product.value);
+      // console.log(product.value);
       confirm.require({
         target: event.currentTarget,
         message: `Kamu akan mengahpus id ( ${product.value.id} )`,
@@ -1651,20 +1707,20 @@ export default defineComponent({
         acceptClass: "p-button-danger",
         accept: async () => {
           await ApiPegawai.value
-            .deletePegawai(product.value.id)
+            .deletePencatatan(product.value)
             .then(async () => {
               deleteProductDialog.value = false;
               toast.add({
                 severity: "success",
                 summary: "Berhasil",
-                detail: `Berhasil menghapus id ( ${product.value.id} )`,
+                detail: `Berhasil menghapus no transaksi ( ${product.value.no_transaksi} )`,
                 life: 3000,
               });
               product.value = {};
               await ApiPegawai.value
-                .getPegawai()
+                .getPencatatan()
                 .then((res) => {
-                  products.value = res.data;
+                  products.value = res.data.data;
                 })
                 .catch((err) => {
                   toast.add({
@@ -1684,7 +1740,7 @@ export default defineComponent({
                 life: 3000,
               });
               product.value = {};
-              console.log(product.value.id);
+              // console.log(product.value.id);
             });
         },
         reject: () => {},
@@ -1702,11 +1758,11 @@ export default defineComponent({
       return index;
     };
     const exportCSV = () => {
-      console.log(dt.value);
+      // console.log(dt.value);
       dt.value.exportCSV();
     };
     const exportCSVExpand = () => {
-      console.log(dtExpand.value);
+      // console.log(dtExpand.value);
       dtExpand.value.exportCSV();
     };
     const confirmDeleteSelected = () => {
@@ -1717,7 +1773,7 @@ export default defineComponent({
         (val) => !selectedProducts.value.includes(val)
       );
 
-      console.log(selectedProducts.value);
+      // console.log(selectedProducts.value);
       deleteProductsDialog.value = false;
       selectedProducts.value = null;
       toast.add({
@@ -1731,7 +1787,7 @@ export default defineComponent({
       if (date3.value[0] != null) {
         if (date3.value[1] != null) {
           if (date3.value[0] <= date3.value[1]) {
-            console.log(`Mantap`);
+            // console.log(`Mantap`);
           } else {
             toast.add({
               severity: "error",
@@ -1832,10 +1888,10 @@ export default defineComponent({
           month = "0" + month;
         }
         this.date3[0] = year + "-" + month + "-" + ddt;
-        console.log(this.date3[0]);
+        // console.log(this.date3[0]);
       } else {
         this.date3[0] = null;
-        console.log(this.date3[0]);
+        // console.log(this.date3[0]);
       }
     },
     date2(newValue) {
@@ -1851,10 +1907,10 @@ export default defineComponent({
           month = "0" + month;
         }
         this.date3[1] = year + "-" + month + "-" + ddt;
-        console.log(this.date3[1]);
+        // console.log(this.date3[1]);
       } else {
         this.date3[1] = null;
-        console.log(this.date3[1]);
+        // console.log(this.date3[1]);
       }
     },
     dt(newValue) {

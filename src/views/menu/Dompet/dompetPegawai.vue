@@ -359,8 +359,7 @@ export default defineComponent({
       products.value = products.value.filter(
         (val) => !selectedProducts.value.includes(val)
       );
-
-      console.log(selectedProducts.value);
+      // console.log(selectedProducts.value);
       deleteProductsDialog.value = false;
       selectedProducts.value = null;
       toast.add({

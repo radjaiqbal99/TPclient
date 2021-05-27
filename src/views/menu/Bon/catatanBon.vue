@@ -370,7 +370,7 @@ export default defineComponent({
         (val) => !selectedProducts.value.includes(val)
       );
 
-      console.log(selectedProducts.value);
+      // console.log(selectedProducts.value);
       deleteProductsDialog.value = false;
       selectedProducts.value = null;
       toast.add({

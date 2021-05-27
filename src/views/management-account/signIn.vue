@@ -101,7 +101,7 @@ export default {
 
     function postLoginData() {
       axios
-        .post("https://server.natunasandmine.com/api/login", loginData)
+        .post("https://natunasandmine.com/api/login", loginData)
         .then((result) => {
           validation.value = result.data;
           function alert() {
@@ -123,7 +123,7 @@ export default {
           going();
         })
         .catch((err) => {
-          console.log("gagal");
+          // console.log("gagal");
           validation.value = err.response.data;
         });
     }

@@ -259,8 +259,8 @@ export default {
           pengeluaranTambang.value = res.data.pengeluarantambang;
           jumlahPegawai.value = res.data.jumlahpegawai;
           jumlahTransaksi.value = res.data.jumlahtransaksi;
-          console.log(date.value);
-          console.log(jumlah.value);
+          // console.log(date.value);
+          // console.log(jumlah.value);
         })
         .catch((err) => {
           loading1.value = false;

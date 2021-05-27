@@ -31,48 +31,72 @@ const routes =[
     {
         path: '/daftarKasir',
         name: 'daftarKasir',
-        component: ()=> import("../views/menu/kasir/daftarKasir.vue")
+        component: ()=> import("../views/menu/kasir/daftarKasir.vue"),
+        meta: {
+            title: 'Daftar Kasir'
+        }
     },
     //PENGATURAN HARGA
     //UPAH
     {
         path: '/upahKasir',
         name: 'upahKasir',
-        component: () => import("../views/menu/Upah/upahKasir.vue")
+        component: () => import("../views/menu/Upah/upahKasir.vue"),
+        meta: {
+            title: 'Upah Kasir'
+        }
     },
     {
         path: '/upahPegawai',
         name: 'upahPegawai',
-        component: () => import("../views/menu/Upah/upahPegawai.vue")
+        component: () => import("../views/menu/Upah/upahPegawai.vue"),
+        meta: {
+            title: 'Upah Pegawai'
+        }
     },
     //HARGA
     {
         path: '/hargaPasir',
         name: 'hargaPasir',
-        component: () => import("../views/menu/Pasir/hargaPasir.vue")
+        component: () => import("../views/menu/Pasir/hargaPasir.vue"),
+        meta: {
+            title: 'Harga Pasir'
+        }
     },
     //PENCATATAN
     {
         path: '/pencatatan',
         name: 'pencatatan',
-        component: () => import("../views/menu/Pencatatan/pencatatan.vue")
+        component: () => import("../views/menu/Pencatatan/pencatatan.vue"),
+        meta: {
+            title: 'Pencatatan'
+        }
     },
     //Deposit & Credit
     {
         path: '/dompetKasir',
         name: 'dompetKasir',
-        component: () => import("../views/menu/Dompet/dompetKasir.vue")
+        component: () => import("../views/menu/Dompet/dompetKasir.vue"),
+        meta: {
+            title: 'Dompet Kasir'
+        }
     },
     {
         path: '/dompetPegawai',
         name: 'dompetPegawai',
-        component: () => import("../views/menu/Dompet/dompetPegawai.vue")
+        component: () => import("../views/menu/Dompet/dompetPegawai.vue"),
+        meta: {
+            title: 'Dompet Pegawai'
+        }
     },
     //Catatan Bon
     {
         path: '/bon',
         name: 'bon',
-        component: () => import("../views/menu/Bon/catatanBon.vue")
+        component: () => import("../views/menu/Bon/catatanBon.vue"),
+        meta: {
+            title: 'Bon'
+        }
     },
 
     
