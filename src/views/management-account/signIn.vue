@@ -46,12 +46,13 @@
                 {{ validation.username[0] }}
               </div>
             </div>
-            <div class="mb-2">
+            <div class="mb-2 ">
               <label class="form-label"> Password </label>
               <!-- <div class="input-group input-group-flat"> -->
               <Password
                 v-model="loginData.password"
                 placeholder="Password"
+                style=""
                 toggleMask
                 :feedback="false"
                   
@@ -136,5 +137,11 @@ export default {
   },
 };
 </script>
+<style  scoped>
+::v-deep(.p-password input) {
+    width: 100%;
+    margin-right: 200px;
+}
+</style>
 
 
