@@ -3,13 +3,13 @@
     <div class="page page-center ">
       <div class="container-tight" >
         <form
-          class="card card-md rounded-3 p-3"
-          
+          class="card card-md rounded-3 p-4"
+          style="wiidth"
           @submit.prevent="postLoginData()"
           autocomplete="off"
         >
           <div class="card-body">
-            <h2 class="card-title text-center mb-3" style="font-size:20pt">LOGIN</h2>
+            <h2 class="card-title text-center mb-3" style="font-size:20pt">WELCOME</h2>
             <div
               v-if="validation.message"
               class="alert alert-important alert-danger alert-dismissible"
@@ -30,7 +30,7 @@
             </div>
               <label class="form-label"> Username </label>
               <div class="input-group input-group-flat mb-3">
-                <input
+                <InputText
                   v-model="loginData.username"
                   type="text"
                   class="form-control"
@@ -49,14 +49,15 @@
               <label class="form-label"> Password </label>
               <!-- <div class="input-group input-group-flat"> -->
               <div class="input-group input-group-flat">
-              <Password
+              <InputText
               class="input-group input-group-flat"
                 v-model="loginData.password"
                 placeholder="Password"
                 toggleMask
+                type="password"
                 :feedback="false"
                   
-              ></Password>
+              ></InputText>
               </div>
                 <!-- <input
                   v-model="loginData.password"
@@ -73,8 +74,8 @@
                 {{ validation.password[0] }}
               </div>
             <div class="form-footer mb-2">
-              <button type="submit" class="btn btn-primary w-100">
-                Sign in
+              <button type="submit" class="btn btn-primary w-100 " style="height:50px;">
+                LOGIN
               </button>
             </div>
           </div>
