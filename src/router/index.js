@@ -6,7 +6,7 @@ const routes =[
         name: 'login',
         component: () => import("../views/management-account/signIn.vue"),
         meta: {
-            title:'Tambang Pasir'
+            title:'shdfour'
         }
     },
     //DASHBOARD
