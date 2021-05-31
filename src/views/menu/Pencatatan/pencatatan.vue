@@ -852,7 +852,7 @@
                     "
                     >kasir</label
                   >
-                  <Dropdown
+                  <MultiSelect
                     id="kasir"
                     v-if="
                       product.jenisTransaksi == `Pembelian pasir` ||
@@ -864,11 +864,13 @@
                           product.keterangan == `Pembayaran`)) ||
                       product.jenisTransaksi == `Pembayaran bon pegawai`
                     "
-                    v-model.trim="product.kasir"
+                    v-model="product.kasir"
                     :options="kasir"
                     optionLabel="name"
                     optionValue="name"
                     required="true"
+                    display="chip"
+                    
                     placeholder="Pilih jenis transaksi"
                     :class="{
                       'p-invalid': submitted && !product.kasir,

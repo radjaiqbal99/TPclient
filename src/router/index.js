@@ -1,12 +1,13 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 const routes =[
+
     {
         path: '/',
         name: 'login',
         component: () => import("../views/management-account/signIn.vue"),
         meta: {
-            title:'shdfour'
+            title:'SHDFOUR'
         }
     },
     //DASHBOARD
@@ -112,13 +113,13 @@ router.beforeEach((toRoute, fromRoute, next) => {
     // const isAuthenticated=false
     window.document.title = toRoute.meta && toRoute.meta.title ? toRoute.meta.title : '';
     if (toRoute.path !== "/" && !isAuthenticated) {
-        console.log("belum")
-        console.log(isAuthenticated)
+        // console.log("belum")
+        // console.log(isAuthenticated)
         next({ path: "/" });
     }
     if (toRoute.path === "/" && isAuthenticated ) {
-        console.log("telah")
-        console.log(isAuthenticated)
+        // console.log("telah")
+        // console.log(isAuthenticated)
         next({ path: "/dashboard" });
     }
         // console.log("has loging")
